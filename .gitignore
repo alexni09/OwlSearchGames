@@ -30,6 +30,7 @@ README_LARAVEL.md
 /app/Mailfiles
 /app/Http/Controllers/Auth/*_LARAVEL.php
 /app/Http/Requests/placeholder.txt
+/app/Providers/AuthServiceProvider_FIRST.php
 /app/UserClasses/Paginator.php
 /app/UserClasses/*_SENHA.php
 /app/UserClasses/Misc_TEST.php
