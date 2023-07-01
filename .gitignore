@@ -31,6 +31,7 @@ README_LARAVEL.md
 /app/Http/Controllers/Auth/*_LARAVEL.php
 /app/Http/Requests/placeholder.txt
 /app/Providers/AuthServiceProvider_FIRST.php
+/app/Providers/AuthServiceProvider_ZERO.php
 /app/UserClasses/Paginator.php
 /app/UserClasses/*_SENHA.php
 /app/UserClasses/Misc_TEST.php
