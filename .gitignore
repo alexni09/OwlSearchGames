@@ -51,7 +51,7 @@ README_LARAVEL.md
 /public/audio0
 /public/fonts
 /public/images/favicon
-/public/images/locales
+/public/images/locale
 /public/images/others
 /resources/js/Components/LaravelUnused
 /resources/js/Components/NavigationBar/*_OLD.vue
