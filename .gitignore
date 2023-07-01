@@ -19,6 +19,7 @@ yarn-error.log
 /.vscode
 composableIssues.txt
 .env_DEV
+.env.example
 InitialUsers.sql
 isDarkMode.txt
 prefersReducedMotion.txt
