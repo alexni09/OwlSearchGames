@@ -11,21 +11,21 @@ class LocaleSeeder extends Seeder {
      * Run the database seeds.
      */
     public function run(): void {
-        Locale::factory()->create([
+        Locale::create([
             'locale' => 'en',
             'name' => 'English',
             'active' => true
         ]);        
-        Locale::factory()->create([
+        Locale::create([
             'locale' => 'pt',
             'name' => 'Português',
             'active' => true
         ]);
-        Locale::factory()->create([
+        Locale::create([
             'locale' => 'es',
             'name' => 'Español'
         ]);        
-        Locale::factory()->create([
+        Locale::create([
             'locale' => 'de',
             'name' => 'Deutsch'
         ]);

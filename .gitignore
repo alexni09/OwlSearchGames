@@ -35,7 +35,7 @@ README_LARAVEL.md
 /app/UserClasses/Paginator.php
 /app/UserClasses/*_SENHA.php
 /app/UserClasses/Misc_TEST.php
-/database/factories/UserFactory_OLD.php
+/database/factories
 /database/migrations2
 /database/seeders/ToDoList.txt
 /database/seeders/UserSeeder_DEV.php
