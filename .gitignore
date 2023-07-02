@@ -19,6 +19,7 @@ yarn-error.log
 composableIssues.txt
 .env_DEV
 .env.example
+.env_SOMEKEYS.txt
 InitialUsers.sql
 isDarkMode.txt
 prefersReducedMotion.txt
