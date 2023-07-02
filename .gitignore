@@ -55,6 +55,7 @@ README_LARAVEL.md
 /public/images/favicon
 /public/images/locale
 /public/images/others
+/resources0
 /resources/js/Components/LaravelUnused
 /resources/js/Components/NavigationBar/*_OLD.vue
 /resources/js/Components/OthersByMe
@@ -66,8 +67,6 @@ README_LARAVEL.md
 /resources/js/Layouts/*_OLD2.vue
 /resources/js/Layouts/*_OLD3.vue
 /resources/js/Layouts/*_OLD4.vue
-/resources/js/Pages/Auth/*_LARAVEL.vue
-/resources/js/Pages/Game/SwalPage.vue
 /resources/js/Pages/Others
 /resources/js/Pages/Profile
 /resources/js/Pages/Useless
