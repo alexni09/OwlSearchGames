@@ -1,0 +1,1 @@
+function r(){function l(e,t,s=""){let n=e+"-"+t,o=sessionStorage.getItem(n);return o??s}function u(e,t){let s=e+"-"+t;sessionStorage.removeItem(s)}function i(e,t,s){let n=e+"-"+t;sessionStorage.setItem(n,s)}return{getSession:l,removeSession:u,setSession:i}}export{r as u};

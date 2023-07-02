@@ -1,0 +1,1 @@
+function r(){function u(e,t,l=""){let o=e+"-"+t,a=localStorage.getItem(o);return a??l}function c(e,t){let l=e+"-"+t;localStorage.removeItem(l)}function n(e,t,l){let o=e+"-"+t;localStorage.setItem(o,l)}return{getLocal:u,removeLocal:c,setLocal:n}}export{r as u};
