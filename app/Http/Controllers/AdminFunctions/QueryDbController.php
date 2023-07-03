@@ -22,13 +22,16 @@ class QueryDbController extends Controller {
         $tb = $request['table'] ?? 'users';
         $wh = $request['where'] ?? null;
         $gb = $request['groupby'] ?? null;
+        $ha = $request['having'] ?? null;
         $ob = $request['orderby'] ?? null;
         $result = DB::table($tb)->selectRaw($se)->when($wh, function(Builder $query1, string $wh) {
             $query1->whereRaw($wh);
         })->when($gb, function(Builder $query2, string $gb) {
             $query2->groupByRaw($gb);
-        })->when($ob, function(Builder $query3, string $ob) {
-            $query3->orderByRaw($ob);
+        })->when($ha, function(Builder $query3, string $ha) {
+            $query3->havingRaw($ha);
+        })->when($ob, function(Builder $query4, string $ob) {
+            $query4->orderByRaw($ob);
         })->get();
         if ($result->isEmpty()) $columns = null;
         else $columns = collect($result[0])->keys();

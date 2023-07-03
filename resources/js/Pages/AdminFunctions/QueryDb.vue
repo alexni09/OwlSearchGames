@@ -10,6 +10,7 @@ const form = useForm({
     table: '',
     where: '',
     groupby: '',
+    having: '',
     orderby: ''
 })
 const submit = () => {
@@ -56,6 +57,12 @@ onMounted(() => {
                                 <input type="text" class="textFieldStyle"
                                     id="query-groupby"
                                     v-model="form.groupby" />
+                            </div>
+                            <div class="flex flex-row">
+                                <label for="query-having" class="whitespace-nowrap">Having:</label>
+                                <input type="text" class="textFieldStyle"
+                                    id="query-having"
+                                    v-model="form.having" />
                             </div>
                             <div class="flex flex-row">
                                 <label for="query-orderby" class="whitespace-nowrap">Order By:</label>
