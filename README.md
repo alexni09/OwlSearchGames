@@ -26,4 +26,4 @@ Tech used: Laravel 10, Inertia, Vite, Vue 3.2 (composition api w/ script setup),
 
 This app features some custom Vue components: a locale plugin, an idea feeder, range sliders, switches, a search box, a difficulty display, a check-box, a password box, and animations. Apart from the pages themselves.
 
-The Laravel/PHP backend contains the usual user functions, many admin functions, language support, the idea feeder, maintaing score, leveling up, and the game logic.
+The Laravel/PHP backend contains the standard and some non-usual user functions, many admin functions, language support, the idea feeder, maintaing score, leveling up, and the game logic.
