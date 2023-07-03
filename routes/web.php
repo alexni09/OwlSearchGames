@@ -36,6 +36,7 @@ use App\Http\Controllers\Game\GameController;
 
 /* Admin Functions */
 use App\Http\Controllers\AdminFunctions\DirectDbController;
+use App\Http\Controllers\AdminFunctions\QueryDbController;
 
 /* e-mail verification */
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -104,3 +105,7 @@ Route::post('/forgot-password', [ForgotPasswordController::class, 'update'])->mi
 /* Direct DB */
 Route::get('/directdb', [DirectDbController::class, 'show'])->middleware('auth')->name('directdb.show');
 Route::patch('/directdb', [DirectDbController::class, 'execute'])->middleware('auth')->name('directdb.execute');
+
+/* Query DB */
+Route::get('/querydb', [QueryDbController::class, 'show'])->middleware('auth')->name('querydb.show');
+Route::post('/querydb', [QueryDbController::class, 'display'])->middleware('auth')->name('querydb.display');

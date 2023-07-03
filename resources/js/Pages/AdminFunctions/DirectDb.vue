@@ -40,7 +40,7 @@ onMounted(() => {
                                 {{ $msg.execute }}
                             </ProcessingButton>
                         </form>
-                        <h2 v-if="!can('admin.generic')" class="mb-4 text-2xl font-semibold text-red-500 dark:text-red-400">$msg.unauthorized</h2>
+                        <h2 v-if="!can('admin.generic')" class="mb-4 text-2xl font-semibold text-red-500 dark:text-red-400">{{ $msg.unauthorized }}</h2>
                     </div>
                 </div>
             </div>

@@ -1,1 +1,0 @@
-import{K as t,l as o}from"./app-e9d4431e.js";const r={__name:"MustUpdateLocale",setup(p){const e=o(),a=t().props.auth.locale;return t().props.mustUpdateLocale&&e.appContext.config.globalProperties.$setLocale(a),(c,l)=>null}};export{r as _};

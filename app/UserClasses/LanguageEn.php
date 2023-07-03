@@ -140,6 +140,7 @@ class LanguageEn extends BaseLanguage {
         'mainWordCount' => '# of Words:',
         'mainWordDifficulty' => 'Word Difficulty:',
         'name' => 'Name',
+        'newQuery' => 'New Query',
         'noRecords' => 'No records were found matching the search criteria.',
         'orGenerateNewGame' => 'Or, generate a custom new game using the full game controls below:',
         'password' => 'Password',
