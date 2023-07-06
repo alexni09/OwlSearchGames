@@ -73,6 +73,7 @@ class User extends Authenticatable implements MustVerifyEmail {
     public static function emailExists($email) { return (bool) self::selectRaw('count(*) as emailExists')->where('email',$email)->get()[0]->emailExists; }
     public static function getIdFromUserId($user_id) { return self::select(['id'])->where('user_id',$user_id)->get()[0]->id; }
     public static function getLocaleIdFromUserId($user_id) { return self::select(['locale_id'])->where('user_id',$user_id)->get()[0]->locale_id; }
+    public static function getMaxId() { return self::selectRaw('max(id) as maxid')->get()[0]->maxid; }
     public static function getStatusFromUserId($user_id) { return self::select([self::STATUS_FIELD])->where('user_id',$user_id)->get()[0]->status; }
     public static function getUserFromEmail($email) { return self::where('email',$email)->get()[0]; }
     public static function getUserFromUserId($user_id) { return self::where(self::MAIN_FIELD,$user_id)->get()[0]; }
