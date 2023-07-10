@@ -16,6 +16,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+addDnsRecord_gmailIssue.txt
 composableIssues.txt
 .env_DEV
 .env.example
@@ -23,7 +24,9 @@ composableIssues.txt
 InitialUsers.sql
 isDarkMode.txt
 prefersReducedMotion.txt
+TestesDeMedidasEmPixels.txt
 toInstall.txt
+TransportException.txt
 README_LARAVEL.md
 /app/Console/Commands/emailSecret.php
 /app/Console/Commands/hashEquals.php

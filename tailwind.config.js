@@ -9,6 +9,10 @@ module.exports = {
     ],
     theme: {
         extend: {
+            screens: {
+                'xs': '475px',
+                ...defaultTheme.screens,
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 robotomono: ['Roboto Mono'],
