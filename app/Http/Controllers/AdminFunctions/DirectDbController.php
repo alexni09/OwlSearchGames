@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\DB;
 
 class DirectDbController extends Controller {
     public function show(): Response {
-        $this->authorize('admin.generic');
+        $this->authorize('admin.updatedb');
         return Inertia::render('AdminFunctions/DirectDb');
     }
 
     public function execute(Request $request): RedirectResponse {
-        $this->authorize('admin.generic');
+        $this->authorize('admin.updatedb');
         DB::unprepared($request['query']);
         return redirect()->intended(RouteServiceProvider::HOME);
     }

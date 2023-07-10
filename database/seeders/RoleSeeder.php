@@ -14,7 +14,10 @@ class RoleSeeder extends Seeder {
      */
     public function run(): void {
         $admin = Role::create(['name' => 'admin']);
-        $admin->permissions()->attach(Permission::whereNotIn('name', ['profile.delete','trophy.donor','trophy.gold'])->get()->pluck('id'));
+        $admin->permissions()->attach(Permission::whereNotIn('name', ['admin.updatedb','profile.delete','trophy.donor','trophy.gold'])->get()->pluck('id'));
+
+        $adminSpecial = Role::create(['name' => 'admin.special']);
+        $adminSpecial->permissions()->attach(Permission::where('name', 'admin.updatedb')->get()->pluck('id'));
 
         $userRestricted = Role::create(['name' => 'user.restricted']);
         $userRestricted->permissions()->attach(Permission::where('name', 'profile.delete')->get()->pluck('id'));

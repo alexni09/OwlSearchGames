@@ -36,6 +36,7 @@ class UserSeeder extends Seeder {
             'pronoun_id' => $pronoun_id1
         ]);
         $admin->roles()->attach(Role::where('name','admin')->value('id'));
+        $admin->roles()->attach(Role::where('name','admin.special')->value('id'));
         
         $manel = User::create([
             User::MAIN_FIELD => 'manel',

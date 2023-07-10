@@ -13,6 +13,7 @@ class PermissionSeeder extends Seeder {
      */
     public function run(): void {
         Permission::create(['name' => 'admin.generic']);
+        Permission::create(['name' => 'admin.updatedb']);
         Permission::create(['name' => 'password.update']);
         Permission::create(['name' => 'profile.delete']);
         Permission::create(['name' => 'profile.update']);
