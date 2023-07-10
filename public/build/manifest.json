@@ -1,105 +1,105 @@
 {
   "CompleteLayout.css": {
-    "file": "assets/CompleteLayout-c7cc6478.css",
+    "file": "assets/CompleteLayout-f7f8f3f0.css",
     "src": "CompleteLayout.css"
   },
   "ProcessingButton.css": {
     "file": "assets/ProcessingButton-a1cbb4ee.css",
     "src": "ProcessingButton.css"
   },
-  "_ApplicationLogoMedium-d401119e.js": {
-    "file": "assets/ApplicationLogoMedium-d401119e.js",
+  "_ApplicationLogoMedium-247d8d1a.js": {
+    "file": "assets/ApplicationLogoMedium-247d8d1a.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_ArrowRectangleRight-51ba84f7.js": {
-    "file": "assets/ArrowRectangleRight-51ba84f7.js",
+  "_ArrowRectangleRight-f6c75740.js": {
+    "file": "assets/ArrowRectangleRight-f6c75740.js",
     "imports": [
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
       "resources/js/app.js"
     ]
   },
-  "_CompleteLayout-03f5a49b.js": {
+  "_CompleteLayout-048e817d.js": {
     "css": [
-      "assets/CompleteLayout-c7cc6478.css"
+      "assets/CompleteLayout-f7f8f3f0.css"
     ],
-    "file": "assets/CompleteLayout-03f5a49b.js",
+    "file": "assets/CompleteLayout-048e817d.js",
     "imports": [
       "resources/js/app.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_useCan-821e0a69.js",
-      "_ArrowRectangleRight-51ba84f7.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_useCan-e75fdf2b.js",
+      "_ArrowRectangleRight-f6c75740.js",
       "_useChangeLocaleAxios-ee23d688.js",
-      "_MustUpdateLocale-c3af773c.js"
+      "_MustUpdateLocale-5e056fd7.js"
     ]
   },
-  "_EmailNotes-f57d0084.js": {
-    "file": "assets/EmailNotes-f57d0084.js",
+  "_EmailNotes-2531d163.js": {
+    "file": "assets/EmailNotes-2531d163.js",
     "imports": [
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
       "resources/js/app.js"
     ]
   },
-  "_InputError-e056b849.js": {
-    "file": "assets/InputError-e056b849.js",
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "_MustUpdateLocale-c3af773c.js": {
-    "file": "assets/MustUpdateLocale-c3af773c.js",
+  "_InputError-229d2eab.js": {
+    "file": "assets/InputError-229d2eab.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_NarrowLayout-556eb8bb.js": {
-    "file": "assets/NarrowLayout-556eb8bb.js",
+  "_MustUpdateLocale-5e056fd7.js": {
+    "file": "assets/MustUpdateLocale-5e056fd7.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_NarrowLayout-e9769b12.js": {
+    "file": "assets/NarrowLayout-e9769b12.js",
     "imports": [
       "resources/js/app.js",
-      "_ApplicationLogoMedium-d401119e.js",
-      "_MustUpdateLocale-c3af773c.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js"
+      "_ApplicationLogoMedium-247d8d1a.js",
+      "_MustUpdateLocale-5e056fd7.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js"
     ]
   },
-  "_PasswordEye-464c10ee.js": {
-    "file": "assets/PasswordEye-464c10ee.js",
+  "_PasswordEye-aa28c822.js": {
+    "file": "assets/PasswordEye-aa28c822.js",
     "imports": [
       "resources/js/app.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js"
+      "_SaveLocaleBeforeUnload-c77bbc29.js"
     ]
   },
-  "_ProcessingButton-86e862a1.js": {
+  "_ProcessingButton-dec261c6.js": {
     "css": [
       "assets/ProcessingButton-a1cbb4ee.css"
     ],
-    "file": "assets/ProcessingButton-86e862a1.js",
+    "file": "assets/ProcessingButton-dec261c6.js",
     "imports": [
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
       "resources/js/app.js"
     ]
   },
-  "_SaveLocaleBeforeUnload-7b394bf4.js": {
-    "file": "assets/SaveLocaleBeforeUnload-7b394bf4.js",
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "_SwitchTwoState-9bb06570.js": {
-    "file": "assets/SwitchTwoState-9bb06570.js",
+  "_SaveLocaleBeforeUnload-c77bbc29.js": {
+    "file": "assets/SaveLocaleBeforeUnload-c77bbc29.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_TrophyGold-3830faa0.js": {
-    "file": "assets/TrophyGold-3830faa0.js",
+  "_SwitchTwoState-1da1146c.js": {
+    "file": "assets/SwitchTwoState-1da1146c.js",
     "imports": [
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
       "resources/js/app.js"
     ]
   },
-  "_useCan-821e0a69.js": {
-    "file": "assets/useCan-821e0a69.js",
+  "_TrophyGold-94199e5b.js": {
+    "file": "assets/TrophyGold-94199e5b.js",
+    "imports": [
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "resources/js/app.js"
+    ]
+  },
+  "_useCan-e75fdf2b.js": {
+    "file": "assets/useCan-e75fdf2b.js",
     "imports": [
       "resources/js/app.js"
     ]
@@ -114,30 +114,30 @@
     "file": "assets/useSessionStorage-6e2da231.js"
   },
   "resources/js/Pages/AdminFunctions/DirectDb.vue": {
-    "file": "assets/DirectDb-83baff26.js",
+    "file": "assets/DirectDb-7529196e.js",
     "imports": [
       "resources/js/app.js",
-      "_CompleteLayout-03f5a49b.js",
-      "_ProcessingButton-86e862a1.js",
-      "_useCan-821e0a69.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_ArrowRectangleRight-51ba84f7.js",
+      "_CompleteLayout-048e817d.js",
+      "_ProcessingButton-dec261c6.js",
+      "_useCan-e75fdf2b.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_ArrowRectangleRight-f6c75740.js",
       "_useChangeLocaleAxios-ee23d688.js",
-      "_MustUpdateLocale-c3af773c.js"
+      "_MustUpdateLocale-5e056fd7.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/AdminFunctions/DirectDb.vue"
   },
   "resources/js/Pages/AdminFunctions/DisplayDb.vue": {
-    "file": "assets/DisplayDb-76d23807.js",
+    "file": "assets/DisplayDb-edab1b3b.js",
     "imports": [
       "resources/js/app.js",
-      "_CompleteLayout-03f5a49b.js",
-      "_useCan-821e0a69.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_ArrowRectangleRight-51ba84f7.js",
+      "_CompleteLayout-048e817d.js",
+      "_useCan-e75fdf2b.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_ArrowRectangleRight-f6c75740.js",
       "_useChangeLocaleAxios-ee23d688.js",
-      "_MustUpdateLocale-c3af773c.js"
+      "_MustUpdateLocale-5e056fd7.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/AdminFunctions/DisplayDb.vue"
@@ -150,16 +150,16 @@
     "css": [
       "assets/QueryDb-9858c757.css"
     ],
-    "file": "assets/QueryDb-4c636f79.js",
+    "file": "assets/QueryDb-da029b5e.js",
     "imports": [
       "resources/js/app.js",
-      "_CompleteLayout-03f5a49b.js",
-      "_ProcessingButton-86e862a1.js",
-      "_useCan-821e0a69.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_ArrowRectangleRight-51ba84f7.js",
+      "_CompleteLayout-048e817d.js",
+      "_ProcessingButton-dec261c6.js",
+      "_useCan-e75fdf2b.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_ArrowRectangleRight-f6c75740.js",
       "_useChangeLocaleAxios-ee23d688.js",
-      "_MustUpdateLocale-c3af773c.js"
+      "_MustUpdateLocale-5e056fd7.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/AdminFunctions/QueryDb.vue"
@@ -172,13 +172,13 @@
     "css": [
       "assets/DeleteProfile-6fb032a6.css"
     ],
-    "file": "assets/DeleteProfile-3faa2c46.js",
+    "file": "assets/DeleteProfile-df6a67b6.js",
     "imports": [
       "resources/js/app.js",
-      "_NarrowLayout-556eb8bb.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_ApplicationLogoMedium-d401119e.js",
-      "_MustUpdateLocale-c3af773c.js"
+      "_NarrowLayout-e9769b12.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_ApplicationLogoMedium-247d8d1a.js",
+      "_MustUpdateLocale-5e056fd7.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/DeleteProfile.vue"
@@ -191,16 +191,16 @@
     "css": [
       "assets/EditProfile-4d510a70.css"
     ],
-    "file": "assets/EditProfile-158c15a1.js",
+    "file": "assets/EditProfile-84e5927c.js",
     "imports": [
       "resources/js/app.js",
-      "_ApplicationLogoMedium-d401119e.js",
-      "_MustUpdateLocale-c3af773c.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_InputError-e056b849.js",
-      "_ProcessingButton-86e862a1.js",
-      "_SwitchTwoState-9bb06570.js",
-      "_useCan-821e0a69.js",
+      "_ApplicationLogoMedium-247d8d1a.js",
+      "_MustUpdateLocale-5e056fd7.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_InputError-229d2eab.js",
+      "_ProcessingButton-dec261c6.js",
+      "_SwitchTwoState-1da1146c.js",
+      "_useCan-e75fdf2b.js",
       "_useChangeLocaleAxios-ee23d688.js"
     ],
     "isDynamicEntry": true,
@@ -214,14 +214,14 @@
     "css": [
       "assets/ForgotPassword-96f1e60a.css"
     ],
-    "file": "assets/ForgotPassword-48bf55ec.js",
+    "file": "assets/ForgotPassword-e4e88b9a.js",
     "imports": [
       "resources/js/app.js",
-      "_NarrowLayout-556eb8bb.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_InputError-e056b849.js",
-      "_ApplicationLogoMedium-d401119e.js",
-      "_MustUpdateLocale-c3af773c.js"
+      "_NarrowLayout-e9769b12.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_InputError-229d2eab.js",
+      "_ApplicationLogoMedium-247d8d1a.js",
+      "_MustUpdateLocale-5e056fd7.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ForgotPassword.vue"
@@ -234,16 +234,16 @@
     "css": [
       "assets/RegisterNewUser-fe60c11d.css"
     ],
-    "file": "assets/RegisterNewUser-1ebbe7af.js",
+    "file": "assets/RegisterNewUser-2bda0627.js",
     "imports": [
       "resources/js/app.js",
-      "_ApplicationLogoMedium-d401119e.js",
-      "_MustUpdateLocale-c3af773c.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_InputError-e056b849.js",
-      "_ProcessingButton-86e862a1.js",
-      "_SwitchTwoState-9bb06570.js",
-      "_PasswordEye-464c10ee.js",
+      "_ApplicationLogoMedium-247d8d1a.js",
+      "_MustUpdateLocale-5e056fd7.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_InputError-229d2eab.js",
+      "_ProcessingButton-dec261c6.js",
+      "_SwitchTwoState-1da1146c.js",
+      "_PasswordEye-aa28c822.js",
       "_useChangeLocaleAxios-ee23d688.js",
       "_useLocalStorage-896d7344.js",
       "_useSessionStorage-6e2da231.js"
@@ -252,27 +252,27 @@
     "src": "resources/js/Pages/Auth/RegisterNewUser.vue"
   },
   "resources/js/Pages/Auth/SendPasswordExpiredToken.vue": {
-    "file": "assets/SendPasswordExpiredToken-d1b117ef.js",
+    "file": "assets/SendPasswordExpiredToken-ca4dac8f.js",
     "imports": [
       "resources/js/app.js",
-      "_NarrowLayout-556eb8bb.js",
-      "_ProcessingButton-86e862a1.js",
-      "_ApplicationLogoMedium-d401119e.js",
-      "_MustUpdateLocale-c3af773c.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js"
+      "_NarrowLayout-e9769b12.js",
+      "_ProcessingButton-dec261c6.js",
+      "_ApplicationLogoMedium-247d8d1a.js",
+      "_MustUpdateLocale-5e056fd7.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/SendPasswordExpiredToken.vue"
   },
   "resources/js/Pages/Auth/SendRedefinePasswordEmail.vue": {
-    "file": "assets/SendRedefinePasswordEmail-6f5b4dfd.js",
+    "file": "assets/SendRedefinePasswordEmail-a5890b93.js",
     "imports": [
       "resources/js/app.js",
-      "_NarrowLayout-556eb8bb.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_EmailNotes-f57d0084.js",
-      "_ApplicationLogoMedium-d401119e.js",
-      "_MustUpdateLocale-c3af773c.js"
+      "_NarrowLayout-e9769b12.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_EmailNotes-2531d163.js",
+      "_ApplicationLogoMedium-247d8d1a.js",
+      "_MustUpdateLocale-5e056fd7.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/SendRedefinePasswordEmail.vue"
@@ -285,16 +285,16 @@
     "css": [
       "assets/UpdateExpiredPassword-b8607ff6.css"
     ],
-    "file": "assets/UpdateExpiredPassword-79cac99c.js",
+    "file": "assets/UpdateExpiredPassword-e44fa4a2.js",
     "imports": [
       "resources/js/app.js",
-      "_ApplicationLogoMedium-d401119e.js",
-      "_MustUpdateLocale-c3af773c.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_InputError-e056b849.js",
-      "_ProcessingButton-86e862a1.js",
-      "_PasswordEye-464c10ee.js",
-      "_ArrowRectangleRight-51ba84f7.js"
+      "_ApplicationLogoMedium-247d8d1a.js",
+      "_MustUpdateLocale-5e056fd7.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_InputError-229d2eab.js",
+      "_ProcessingButton-dec261c6.js",
+      "_PasswordEye-aa28c822.js",
+      "_ArrowRectangleRight-f6c75740.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/UpdateExpiredPassword.vue"
@@ -307,16 +307,16 @@
     "css": [
       "assets/UpdatePassword-2f4438fc.css"
     ],
-    "file": "assets/UpdatePassword-28909776.js",
+    "file": "assets/UpdatePassword-5316fa99.js",
     "imports": [
       "resources/js/app.js",
-      "_NarrowLayout-556eb8bb.js",
-      "_InputError-e056b849.js",
-      "_ProcessingButton-86e862a1.js",
-      "_PasswordEye-464c10ee.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_ApplicationLogoMedium-d401119e.js",
-      "_MustUpdateLocale-c3af773c.js"
+      "_NarrowLayout-e9769b12.js",
+      "_InputError-229d2eab.js",
+      "_ProcessingButton-dec261c6.js",
+      "_PasswordEye-aa28c822.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_ApplicationLogoMedium-247d8d1a.js",
+      "_MustUpdateLocale-5e056fd7.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/UpdatePassword.vue"
@@ -329,36 +329,36 @@
     "css": [
       "assets/UserLogin-98aa2814.css"
     ],
-    "file": "assets/UserLogin-96aa7aa1.js",
+    "file": "assets/UserLogin-7bf2e094.js",
     "imports": [
       "resources/js/app.js",
-      "_NarrowLayout-556eb8bb.js",
-      "_InputError-e056b849.js",
-      "_ProcessingButton-86e862a1.js",
-      "_PasswordEye-464c10ee.js",
+      "_NarrowLayout-e9769b12.js",
+      "_InputError-229d2eab.js",
+      "_ProcessingButton-dec261c6.js",
+      "_PasswordEye-aa28c822.js",
       "_useLocalStorage-896d7344.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_ApplicationLogoMedium-d401119e.js",
-      "_MustUpdateLocale-c3af773c.js"
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_ApplicationLogoMedium-247d8d1a.js",
+      "_MustUpdateLocale-5e056fd7.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/UserLogin.vue"
   },
   "resources/js/Pages/Auth/VerifyEmail.vue": {
-    "file": "assets/VerifyEmail-c71fda59.js",
+    "file": "assets/VerifyEmail-6eb84fcb.js",
     "imports": [
       "resources/js/app.js",
-      "_ApplicationLogoMedium-d401119e.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_ProcessingButton-86e862a1.js",
-      "_ArrowRectangleRight-51ba84f7.js",
-      "_EmailNotes-f57d0084.js"
+      "_ApplicationLogoMedium-247d8d1a.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_ProcessingButton-dec261c6.js",
+      "_ArrowRectangleRight-f6c75740.js",
+      "_EmailNotes-2531d163.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/VerifyEmail.vue"
   },
   "resources/js/Pages/Exception/GenericException.vue": {
-    "file": "assets/GenericException-289d0f43.js",
+    "file": "assets/GenericException-81e3f1d8.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -366,23 +366,23 @@
     "src": "resources/js/Pages/Exception/GenericException.vue"
   },
   "resources/js/Pages/Game/CreateGame.css": {
-    "file": "assets/CreateGame-a0bec648.css",
+    "file": "assets/CreateGame-4d8b29a5.css",
     "src": "resources/js/Pages/Game/CreateGame.css"
   },
   "resources/js/Pages/Game/CreateGame.vue": {
     "css": [
-      "assets/CreateGame-a0bec648.css"
+      "assets/CreateGame-4d8b29a5.css"
     ],
-    "file": "assets/CreateGame-ae72663c.js",
+    "file": "assets/CreateGame-4ff89a99.js",
     "imports": [
       "resources/js/app.js",
-      "_CompleteLayout-03f5a49b.js",
-      "_TrophyGold-3830faa0.js",
-      "_useCan-821e0a69.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
-      "_ArrowRectangleRight-51ba84f7.js",
+      "_CompleteLayout-048e817d.js",
+      "_TrophyGold-94199e5b.js",
+      "_useCan-e75fdf2b.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
+      "_ArrowRectangleRight-f6c75740.js",
       "_useChangeLocaleAxios-ee23d688.js",
-      "_MustUpdateLocale-c3af773c.js"
+      "_MustUpdateLocale-5e056fd7.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Game/CreateGame.vue"
@@ -395,30 +395,30 @@
     "css": [
       "assets/MainPage-9c53004e.css"
     ],
-    "file": "assets/MainPage-18ee6de6.js",
+    "file": "assets/MainPage-af4494c4.js",
     "imports": [
       "resources/js/app.js",
-      "_CompleteLayout-03f5a49b.js",
-      "_TrophyGold-3830faa0.js",
-      "_SaveLocaleBeforeUnload-7b394bf4.js",
+      "_CompleteLayout-048e817d.js",
+      "_TrophyGold-94199e5b.js",
+      "_SaveLocaleBeforeUnload-c77bbc29.js",
       "_useSessionStorage-6e2da231.js",
-      "_InputError-e056b849.js",
-      "_ProcessingButton-86e862a1.js",
-      "_useCan-821e0a69.js",
-      "_ArrowRectangleRight-51ba84f7.js",
+      "_InputError-229d2eab.js",
+      "_ProcessingButton-dec261c6.js",
+      "_useCan-e75fdf2b.js",
+      "_ArrowRectangleRight-f6c75740.js",
       "_useChangeLocaleAxios-ee23d688.js",
-      "_MustUpdateLocale-c3af773c.js"
+      "_MustUpdateLocale-5e056fd7.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Game/MainPage.vue"
   },
   "resources/js/app.css": {
-    "file": "assets/app-190dc054.css",
+    "file": "assets/app-0b732a0d.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-190dc054.css"
+      "assets/app-0b732a0d.css"
     ],
     "dynamicImports": [
       "resources/js/Pages/AdminFunctions/DirectDb.vue",
@@ -438,7 +438,7 @@
       "resources/js/Pages/Game/CreateGame.vue",
       "resources/js/Pages/Game/MainPage.vue"
     ],
-    "file": "assets/app-0c35c209.js",
+    "file": "assets/app-32df9e2b.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
