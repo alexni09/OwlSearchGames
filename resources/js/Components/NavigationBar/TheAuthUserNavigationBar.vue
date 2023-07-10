@@ -40,6 +40,22 @@ const user = computed(() => usePage().props.auth.user)
                         <span>{{ $msg.updatePassword }}</span>
                     </Link>
                 </div>
+                <div v-if="can('admin.generic')">
+                    <Link :href="route('querydb.show')" as="button" type="button"
+                        class="my-1 mx-2 w-[240px] px-3 py-2 bg-cyan-600 text-white font-semibold text-sm 
+                        flex flex-row-reverse place-items-center
+                        hover:underline uppercase rounded-sm whitespace-nowrap">
+                        <span>{{ $msg.queryDb }}</span>
+                    </Link>
+                </div>
+                <div v-if="can('admin.updatedb')">
+                    <Link :href="route('directdb.show')" as="button" type="button"
+                        class="my-1 mx-2 w-[240px] px-3 py-2 bg-cyan-800 text-white font-semibold text-sm 
+                        flex flex-row-reverse place-items-center
+                        hover:underline uppercase rounded-sm whitespace-nowrap">
+                        <span>{{ $msg.directDb }}</span>
+                    </Link>
+                </div>
                 <div>
                     <Link :href="route('logout')" as="button" type="button"
                         class="my-1 mx-2 w-[240px] px-3 py-2 bg-red-400 text-amber-50 font-semibold text-sm 

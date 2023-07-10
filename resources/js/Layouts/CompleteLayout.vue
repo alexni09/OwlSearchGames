@@ -57,7 +57,7 @@ onUnmounted(() => {
                             <!-- Idea Feeder -->
                             <TheLightBulbFeeder 
                                 class="flex right-2 xs:-right-10 sm:-left-10 top-[18px]" />
-                            <!-- User Info -->
+                            <!-- User Info & Dropdown Menu -->
                             <TheAuthUserNavigationBar v-if="myInnerWidth >= smallSizeBreakpoint" class="flex mr-2 mt-[2px]" />
                         </div>
                         <!-- Hamburger -->
