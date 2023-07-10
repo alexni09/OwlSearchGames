@@ -65,8 +65,14 @@ onMounted(() => {
         </form>
         <hr class="my-8 border-orange-800 dark:border-green-200">
         <div class="mb-2 flex flex-row-reverse">
-            <Link href="/forgot-password" as="button" type="button"
-                class="px-5 py-2 bg-red-400 text-white uppercase rounded">{{ $msg.forgotMyPassword }}</Link>
+            <Link :href="route('forgotpassword.edit')" as="button" type="button"
+                class="px-5 py-2 bg-red-500 dark:bg-red-400 text-white uppercase rounded">{{ $msg.forgotMyPassword }}</Link>
+        </div>
+        <hr class="my-8 border-orange-800 dark:border-green-200">
+        <div class="mb-2 flex flex-row justify-between items-center">
+            <p class="text-orange-800 dark:text-amber-100">{{ $msg.noAccount }}</p>
+            <Link :href="route('register.create')" as="button" type="button"
+                class="px-9 py-2 bg-blue-600 text-white uppercase rounded">{{ $msg.register }}</Link>
         </div>
     </NarrowLayout>
 </template>

@@ -5,6 +5,8 @@ import TheAuthUser from '@/Components/NavigationBar/TheAuthUser.vue'
 import TheDropdownAuth from '@/Components/NavigationBar/TheDropdownAuth.vue'
 import UserCircle from '@/Components/SVG/UserCircle.vue'
 import IdentificationSVG from '@/Components/SVG/IdentificationSVG.vue'
+import CircleStack from '@/Components/SVG/CircleStack.vue'
+import PencilSquare from '@/Components/SVG/PencilSquare.vue'
 import ArrowRectangleRight from '@/Components/SVG/ArrowRectangleRight.vue'
 import UserPlus from '@/Components/SVG/UserPlus.vue'
 import { useCan } from '@/Composables/useCan'
@@ -45,6 +47,7 @@ const user = computed(() => usePage().props.auth.user)
                         class="my-1 mx-2 w-[240px] px-3 py-2 bg-cyan-600 text-white font-semibold text-sm 
                         flex flex-row-reverse place-items-center
                         hover:underline uppercase rounded-sm whitespace-nowrap">
+                        <CircleStack class="mx-1" />
                         <span>{{ $msg.queryDb }}</span>
                     </Link>
                 </div>
@@ -53,6 +56,7 @@ const user = computed(() => usePage().props.auth.user)
                         class="my-1 mx-2 w-[240px] px-3 py-2 bg-cyan-800 text-white font-semibold text-sm 
                         flex flex-row-reverse place-items-center
                         hover:underline uppercase rounded-sm whitespace-nowrap">
+                        <PencilSquare class="mx-1" />
                         <span>{{ $msg.directDb }}</span>
                     </Link>
                 </div>

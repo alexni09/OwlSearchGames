@@ -141,6 +141,7 @@ class LanguagePt extends BaseLanguage {
         'mainWordCount' => 'Qtd. de Palavras:',
         'mainWordDifficulty' => 'Dificuldade das Palavras:',
         'name' => 'Nome',
+        'noAccount' => 'Não possui conta?',
         'newQuery' => 'Nova Consulta',
         'noRecords' => 'Nenhum registro encontrado com os critério(s) especificado(s).',
         'orGenerateNewGame' => 'Ou, gere um novo jogo customizado, utilizando os controles abaixo:',
