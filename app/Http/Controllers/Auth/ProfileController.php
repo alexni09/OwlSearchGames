@@ -20,6 +20,7 @@ use App\Models\DeletedRoleUser;
 use Illuminate\Auth\Events\Registered;
 use App\Events\UserUpdatedEmail;
 use App\Rules\EmailBanned;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class ProfileController extends Controller {
     /**
@@ -38,7 +39,7 @@ class ProfileController extends Controller {
     /**
      * Update the user's profile information.
      */
-    public function update(Request $request): RedirectResponse {
+    public function update(Request $request): RedirectResponse|Response {
         $this->authorize('profile.update');
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:'.User::NAME_FIELD_MAX_CHARS],
@@ -50,13 +51,17 @@ class ProfileController extends Controller {
             'show_email' => ['required', 'boolean'],
             'show_user_id' => ['required', 'boolean']
         ]);
-        UserUpdate::addUpdated($request->user()->id);
         $request->user()->fill($validated);
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+        try {
+            event(new UserUpdatedEmail($request->user()));
+        } catch(TransportException) {
+            return Inertia::render('Auth/EmailNotSent');
+        }
+        UserUpdate::addUpdated($request->user()->id);
         $request->user()->save();
-        event(new UserUpdatedEmail($request->user()));
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
