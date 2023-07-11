@@ -188,6 +188,7 @@ class LanguagePt extends BaseLanguage {
         'showName' => 'Exibir nome do usuário',
         'showPronoun' => 'Exibir pronome',
         'showUserId' => 'Exibir ID de usuário',
+        'somethingWentWrong' => 'Algo correu mal com o seu pedido.',
         'success' => 'Sucesso!',
         'successDeleteProfile' => 'Conta de usuário excluída.',
         'successStoreProfile' => 'Novo usuário foi criado!',
@@ -202,6 +203,7 @@ class LanguagePt extends BaseLanguage {
         'tokenExpiredButton' => 'Reenviar Email',
         'tokenExpiredText' => 'A sua palavra-passe e a mensagem de token que lhe enviamos estão expiradas. Clique no botão abaixo para reenviar um novo email de atribuição de palavra-passe.',
         'tokenExpiredTitle' => 'Palavra-Passe Expirada',
+        'tryAgainLater' => 'Por favor tente novamente mais tarde.',
         'unauthorized' => 'Não autorizado',
         'undefinedError' => 'Ocorreu um erro indefinido.',
         'updateExpiredPassword' => 'Atribuir Nova Palavra-Passe',
@@ -219,5 +221,6 @@ class LanguagePt extends BaseLanguage {
         'welcomeWSG' => 'Bem-vindo ao Caça-Palavras!',
         'wordList' => 'Lista de Palavras',
         'wordSearchGame' => 'Caça-Palavra',
+        'whoops' => 'Oops!'
     ];
 }

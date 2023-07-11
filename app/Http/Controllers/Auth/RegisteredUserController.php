@@ -70,7 +70,12 @@ class RegisteredUserController extends Controller {
             'show_user_id' => $request->show_user_id
         ]);
         $user->roles()->attach(Role::where('name','user.generic')->value('id'));
-        event(new Registered($user));
+        try {
+            event(new Registered($user));
+        } catch(TransportException) {
+            $user->delete();
+            return Inertia::render('Auth/EmailNotSent');
+        }
         Auth::login($user);
         $user_locale = Locale::getLocaleFromUserId($request[User::MAIN_FIELD]);
         session(['locale' => $user_locale, 'mustUpdateLocale' => true]);

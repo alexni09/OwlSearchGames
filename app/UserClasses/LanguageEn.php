@@ -188,6 +188,7 @@ class LanguageEn extends BaseLanguage {
         'showName' => 'Show user name',
         'showPronoun' => 'Show title',
         'showUserId' => 'Show user ID',
+        'somethingWentWrong' => 'Something went wrong with your request.',
         'success' => 'Success!',
         'successDeleteProfile' => 'User account deleted.',
         'successStoreProfile' => 'New user created!',
@@ -202,6 +203,7 @@ class LanguageEn extends BaseLanguage {
         'tokenExpiredButton' => 'Resend Email',
         'tokenExpiredText' => 'Both your password and the token message we sent you have expired. Click on the button below to resend a new password reset email.',
         'tokenExpiredTitle' => 'Password Expired',
+        'tryAgainLater' => 'Please try again later.',
         'unauthorized' => 'Unauthorized',
         'undefinedError' => 'An undefined error has occurred.',
         'updateExpiredPassword' => 'Set a New Password',
@@ -219,5 +221,6 @@ class LanguageEn extends BaseLanguage {
         'welcomeWSG' => 'Welcome to the Owl Search Games!',
         'wordList' => 'Word List',
         'wordSearchGame' => 'Owl Search Games',
+        'whoops' => 'Whoops!'
     ];
 }
