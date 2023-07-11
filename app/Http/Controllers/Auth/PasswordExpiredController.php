@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\App;
 use App\Events\PasswordExpired;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\OldPassword;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class PasswordExpiredController extends Controller {
     /**
@@ -88,11 +89,15 @@ class PasswordExpiredController extends Controller {
     /**
      * Sends another email with a notification for setting the expired password.
      */
-    public function resend(Request $request): RedirectResponse {
+    public function resend(Request $request): RedirectResponse|Response {
         if (!PasswordToken::existsToken($request->token)) return redirect()->intended(RouteServiceProvider::HOME);
         $user_id = PasswordToken::getUserIdByToken($request->token);
         $user = User::where('user_id',$user_id)->get()[0];
-        event(new PasswordExpired($user));
+        try {
+            event(new PasswordExpired($user));
+        } catch(TransportException) {
+            return Inertia::render('Auth/EmailNotSent');
+        }
         /* Logout and go HOME. */
         Auth::logout();
         $request->session()->invalidate();
