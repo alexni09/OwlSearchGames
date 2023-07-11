@@ -51,6 +51,7 @@ class LanguageEn extends BaseLanguage {
         'emailVerificationLine03' => 'You received this email because you requested to update your email address in our website.',
         'emailVerificationLineBelow' => 'If you are having trouble clicking on the button above, copy and paste the following URL into your web browser:',
         'emailVerificationMessageBelowDomains' => 'Or add our domains to the Safe Senders List in your email provider:',
+        'emailVerificationMessageBelowNoReply' => 'Or add noreply@owlsearchgame.com to the contact list of your email provider.',
         'emailVerificationMessageBelowNotes' => 'Notes:',
         'emailVerificationMessageBelowSpam' => 'If you experience issues in receiving our emais, please check your spam box.',
         'emailVerificationResend' => 'Resend Verification Email',

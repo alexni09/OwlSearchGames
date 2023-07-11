@@ -51,6 +51,7 @@ class LanguagePt extends BaseLanguage {
         'emailVerificationLine03' => 'Recebeu este email porque solicitou alteração do seu endereço de email em nosso sítio.',
         'emailVerificationLineBelow' => 'Se encontrou dificuldade em apertar o botão acima, copie e cole a URL seguinte em seu navegador:',
         'emailVerificationMessageBelowDomains' => 'Ou adicione nossos nomes de domínio à lista de emails segura, do seu provedor de email:',
+        'emailVerificationMessageBelowNoReply' => 'Ou adicione noreply@owlsearchgame.com à lista de contatos do seu provedor de email.',
         'emailVerificationMessageBelowNotes' => 'Observações:',
         'emailVerificationMessageBelowSpam' => 'Se não recebe nossos emails, por favor verifique sua caixa de spam.',
         'emailVerificationResend' => 'Reenviar Email de Verificação',
