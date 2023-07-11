@@ -22,6 +22,7 @@ use App\Rules\UserIdLastCharacter;
 use App\Rules\EmailBanned;
 use App\Rules\UserIdBanned;
 use App\Models\Role;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class RegisteredUserController extends Controller {
     /**
@@ -41,7 +42,7 @@ class RegisteredUserController extends Controller {
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse {
+    public function store(Request $request): RedirectResponse|Response {
         $request->validate([
             User::MAIN_FIELD => ['required', 'string', 'min:'.User::MAIN_FIELD_MIN_CHARS, 'max:'.User::MAIN_FIELD_MAX_CHARS, 
                                 new UserIdBanned, new UserIdFirstCharacter, new UserIdMain, new UserIdLastCharacter, 'unique:user_ids'],
