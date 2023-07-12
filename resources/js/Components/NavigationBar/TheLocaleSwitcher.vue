@@ -35,7 +35,7 @@ const isDarkMode = computed(() => window.matchMedia && (window.matchMedia(`(pref
     @apply block w-full px-4 py-2 text-left text-sm leading-5 
     bg-amber-50 dark:bg-emerald-600
     text-orange-800 dark:text-amber-50
-    disabled:text-gray-500 
+    disabled:text-gray-500 disabled:dark:text-gray-300
     hover:bg-amber-100 dark:hover:bg-emerald-700 
     focus:bg-amber-100 dark:focus:bg-emerald-700
     transition duration-150 ease-in-out;
