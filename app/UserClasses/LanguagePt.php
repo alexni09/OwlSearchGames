@@ -224,7 +224,7 @@ class LanguagePt extends BaseLanguage {
         'welcome' => 'Bem-vindo(a)',
         'welcomeF' => 'Bem-vinda',
         'welcomeM' => 'Bem-vindo',
-        'welcomeWSG' => 'Bem-vindo ao Caça-Palavras!',
+        'welcomeWSG' => 'Bem-vindo ao Owl Search Games!',
         'wordList' => 'Lista de Palavras',
         'wordSearchGame' => 'Owl Search Games',
         'whoops' => 'Oops!'
