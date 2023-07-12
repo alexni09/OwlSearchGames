@@ -9,7 +9,7 @@ import HomeSVG from '@/Components/SVG/HomeSVG.vue'
         <p class="mt-1 mb-4 text-orange-700 dark:text-amber-100">{{ $msg.somethingWentWrong }}</p>
         <p class="mt-1 mb-4 text-orange-700 dark:text-amber-100">{{ $msg.tryAgainLater }}</p>
         <div class="flex flex-row-reverse">
-            <Link :href="route('home')" as="button" type="button"
+            <Link :href="route('logout')" as="button" type="button"
                 class="p-4 bg-orange-100 border-[3px] dark:bg-green-700 border-orange-700 dark:border-green-200 rounded-2xl"><HomeSVG /></Link>
         </div>
     </NarrowLayout>
