@@ -1,1 +1,0 @@
-import{b as o,l as a,w as r,u as s,m as t,d as c}from"./app-6c6fef4a.js";const l=c("img",{src:"/images/logo/owl96.jpg",class:"block h-24 border-2 border-emerald-950 rounded-2xl bg-black opacity-90 shadow-md"},null,-1),n={__name:"ApplicationLogoMedium",setup(d){return(e,i)=>(o(),a(s(t),{href:e.route("home")},{default:r(()=>[l]),_:1},8,["href"]))}};export{n as _};
