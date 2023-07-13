@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 import { Link, Head, useForm } from '@inertiajs/vue3'
 import NarrowLayout from '@/Layouts/NarrowLayout.vue'
+import LocaleCycler from '@/Components/Others/LocaleCycler.vue'
 import InputError from '@/Components/Laravel/InputError.vue'
 import CheckboxColorSVG from '@/Components/HTML/CheckboxColorSVG.vue'
 import ProcessingButton from '@/Components/HTML/ProcessingButton.vue'
@@ -37,7 +38,10 @@ onMounted(() => {
     <audio id="processingButtonAudio" src="/audio/processingbutton1.mp3" preload="auto" />
     <NarrowLayout>
         <form @submit.prevent="submit">
-            <h3 class="mt-1 mb-2 text-lg text-orange-800 dark:text-amber-100 font-semibold">{{ $msg.login3 }}</h3>
+            <div class="flex justify-between place-items-center">
+                <h3 class="mt-1 mb-2 text-lg text-orange-800 dark:text-amber-100 font-semibold">{{ $msg.login3 }}</h3>
+                <LocaleCycler />
+            </div>
             <div>
                 <label for="login-userId" class="labelStyle">{{ $msg.userId }}</label>
                 <input v-model="form.user_id" id="login-userId" type="text" class="userFieldStyle" :placeholder="$msg.userIdPlaceholder"

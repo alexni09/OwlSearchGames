@@ -18,7 +18,7 @@ const isDarkMode = computed(() => window.matchMedia && (window.matchMedia(`(pref
             <button class="text-sm font-medium text-gray-500 mt-6">
                 <div class="flex flex-row place-items-center relative top-[-2px]">
                     <GlobeIcon class="mr-[2px]" />
-                    <span :class="{'text-amber-50':isDarkMode, 'text-emerald-700':!isDarkMode}">{{ $msg.localeChange }}</span>
+                    <span :class="{'text-amber-100':isDarkMode, 'text-emerald-700':!isDarkMode}">{{ $msg.localeChange }}</span>
                 </div>
             </button>
         </template>
@@ -33,7 +33,7 @@ const isDarkMode = computed(() => window.matchMedia && (window.matchMedia(`(pref
 <style lang="postcss" scoped>
 .localeSwitcherButton {
     @apply block w-full px-4 py-2 text-left text-sm leading-5 
-    bg-amber-50 dark:bg-emerald-600
+    bg-amber-100 dark:bg-emerald-600
     text-orange-800 dark:text-amber-50
     disabled:text-gray-500 disabled:dark:text-gray-300
     hover:bg-amber-100 dark:hover:bg-emerald-700 

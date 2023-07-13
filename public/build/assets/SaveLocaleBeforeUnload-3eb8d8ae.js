@@ -1,0 +1,1 @@
+import{x as r}from"./app-202377ef.js";const c=(o,t)=>{const e=o.__vccOpts||o;for(const[n,a]of t)e[n]=a;return e},l={__name:"SaveLocaleBeforeUnload",setup(o){const t=r();return window.addEventListener("beforeunload",function(e){e.preventDefault(),sessionStorage.setItem("localeBeforeUnload",t.appContext.config.globalProperties.$locale.locale)}),(e,n)=>null}};export{c as _,l as a};
