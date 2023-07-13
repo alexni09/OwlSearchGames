@@ -2,6 +2,7 @@
 import { ref, onMounted, watchEffect } from 'vue'
 import { useForm } from '@inertiajs/vue3'
 import NarrowLayout from '@/Layouts/NarrowLayout.vue'
+import LocaleCycler from '@/Components/Others/LocaleCycler.vue'
 import SearchBox from '@/Components/Complex/SearchBox.vue'
 import InputError from '@/Components/Laravel/InputError.vue'
 const myProps = defineProps({
@@ -78,9 +79,10 @@ watchEffect(() => {
         <div ref="refNarrowLayout" 
             class="relative z-0 w-full h-72 text-orange-700 dark:text-green-100 rounded-none border-none">
             <div class="absolute z-10 top-4 w-full">
-                <div class="flex justify-between place-items-baseline">
+                <div class="flex justify-between items-start">
                     <span class="font-semibold">{{ $msg.forgotYourPassword }}</span>
-                    <span class="text-sm font-medium">({{ $msg.forgotPasswordOption }} {{ method }} {{ $msg.forgotPasswordOf }} {{ maxMethod }})</span>
+                    <span class="mt-[3px] text-sm font-medium">({{ $msg.forgotPasswordOption }} {{ method }} {{ $msg.forgotPasswordOf }} {{ maxMethod }})</span>
+                    <LocaleCycler />
                 </div>
                 <p class="text-base">{{ $msg.forgotYourPasswordNoProblem }}</p>
                 <p v-if="method === 1" class="pb-4 text-base">{{ $msg.forgotYourPasswordUserId }}</p>
