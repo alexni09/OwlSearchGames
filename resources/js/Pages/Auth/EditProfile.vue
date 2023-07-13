@@ -2,6 +2,7 @@
 import { onMounted, getCurrentInstance, ref, computed, watch, toRaw } from 'vue'
 import { Link, Head, useForm, usePage } from '@inertiajs/vue3'
 import HighDoubleLayout from '@/Layouts/HighDoubleLayout.vue'
+import LocaleCycler from '@/Components/Others/LocaleCycler.vue'
 import InputError from '@/Components/Laravel/InputError.vue'
 import ProcessingButton from '@/Components/HTML/ProcessingButton.vue'
 import SwitchTwoState from '@/Components/HTML/SwitchTwoState.vue'
@@ -92,7 +93,10 @@ watch(showPronoun, () => {
     <audio id="processingButtonAudio" src="/audio/processingbutton1.mp3" preload="auto" />
     <HighDoubleLayout>
         <template #one>
-            <h3 class="mt-1 mb-2 text-lg text-orange-700 dark:text-amber-100 font-semibold">{{ $msg.profileEdit }}</h3>
+            <div class="flex justify-between items-start">
+                <h3 class="mt-1 mb-2 text-lg text-orange-700 dark:text-amber-100 font-semibold">{{ $msg.profileEdit }}</h3>
+                <LocaleCycler class="mt-1" />
+            </div>
             <form @submit.prevent="submit">
                 <div class="mt-1">
                     <label for="profile-userName" class="labelStyle">{{ $msg.userName }}</label>
