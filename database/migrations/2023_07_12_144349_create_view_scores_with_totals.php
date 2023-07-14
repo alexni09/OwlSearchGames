@@ -9,13 +9,17 @@ return new class extends Migration {
      */
     public function up(): void {
         DB::unprepared("create view scores_with_totals as
-        select id, user_id, ' ' as isTotal, score, created_at, updated_at
-        from scores
+        select scores.id, scores.user_id, locales.locale , ' ' as isTotal, scores.score, scores.created_at, scores.updated_at
+        from scores, users, locales
+        where scores.user_id = users.user_id
+        and users.locale_id = locales.id
         union
-        select null as id, user_id, 'TOTAL' as isTotal, sum(score), null as created_at, null as updated_at
-        from scores
+        select null as id, scores.user_id, locales.locale, 'TOTAL' as isTotal, sum(scores.score), null as created_at, null as updated_at
+        from scores, users, locales
+        where scores.user_id = users.user_id
+        and users.locale_id = locales.id
         group by user_id
-        order by 2, 3, 1");
+        order by 2, 3, 4, 1");
     }
 
     /**
