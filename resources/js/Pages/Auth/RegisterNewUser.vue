@@ -2,6 +2,7 @@
 import { onMounted, getCurrentInstance, ref, computed, watch, toRaw } from 'vue'
 import { Head, useForm } from '@inertiajs/vue3'
 import HighLayout from '@/Layouts/HighLayout.vue'
+import LocaleCycler from '@/Components/Others/LocaleCycler.vue'
 import InputError from '@/Components/Laravel/InputError.vue'
 import ProcessingButton from '@/Components/HTML/ProcessingButton.vue'
 import SwitchTwoState from '@/Components/HTML/SwitchTwoState.vue'
@@ -115,7 +116,10 @@ const textFieldStyle = "block mt-1 w-full rounded-md shadow-sm bg-amber-100 dark
     <audio id="processingButtonAudio" src="/audio/processingbutton1.mp3" preload="auto" />
     <HighLayout>
         <form @submit.prevent="submit">
-            <h3 class="mt-1 mb-2 text-lg text-orange-800 dark:text-amber-100 font-semibold">{{ $msg.registerNewUser }}</h3>
+            <div class="flex justify-between items-start">
+                <h3 class="mt-1 mb-2 text-lg text-orange-800 dark:text-amber-100 font-semibold">{{ $msg.registerNewUser }}</h3>
+                <LocaleCycler class="mt-1" />
+            </div>
             <div>
                 <label for="register-userId" class="labelStyle">{{ $msg.userId }}</label>
                 <input v-model="form.user_id" id="register-userId" type="text" class="userFieldStyle" :placeholder="$msg.userIdPlaceholder"
