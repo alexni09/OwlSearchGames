@@ -2,6 +2,7 @@
 import { getCurrentInstance, onMounted } from 'vue'
 import { Link, Head, useForm } from '@inertiajs/vue3'
 import DoubleLayout from '@/Layouts/DoubleLayout.vue'
+import LocaleCycler from '@/Components/Others/LocaleCycler.vue'
 import InputError from '@/Components/Laravel/InputError.vue'
 import ProcessingButton from '@/Components/HTML/ProcessingButton.vue'
 import PasswordEye from '@/Components/HTML/PasswordEye.vue'
@@ -34,7 +35,10 @@ onMounted(() => {
     <DoubleLayout>
         <template #one>
             <form @submit.prevent="submitUpdate" class="py-1">
-                <h3 class="mt-1 mb-2 text-lg text-orange-800 dark:text-amber-100 font-semibold">{{ $msg.updateExpiredPassword }}</h3>
+                <div class="flex justify-between items-start">
+                    <h3 class="mt-1 mb-2 pr-1 text-lg text-orange-800 dark:text-amber-100 font-semibold">{{ $msg.updateExpiredPassword }}</h3>
+                    <LocaleCycler class="mt-1" />
+                </div>
                 <!-- password -->
                 <div class="mt-4">
                     <label for="update-password" class="labelStyle">{{ $msg.passwordNew }}</label>
