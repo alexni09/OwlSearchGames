@@ -173,7 +173,7 @@ class LanguageEn extends BaseLanguage {
         'passwordPlaceholder' => 'Type in your password...',
         'profileDelete' => 'Remove Profile',
         'profileDeletePreText' => 'Or, if you wish, you may cancel this account.',
-        'profileDeleteText' => 'Removing this account deletes the user info and terminates the Word Search Game service for this user.',
+        'profileDeleteText' => 'Removing this account deletes the user info and terminates the Owl Search Games service for this user.',
         'profileEdit' => 'Edit Profile',
         'pronoun' => 'Your Title',
         'pronounSelect' => 'Select your Title',

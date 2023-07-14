@@ -2,6 +2,7 @@
 import { getCurrentInstance } from 'vue'
 import { Head, useForm } from '@inertiajs/vue3'
 import NarrowLayout from '@/Layouts/NarrowLayout.vue'
+import LocaleCycler from '@/Components/Others/LocaleCycler.vue'
 import ProcessingButtonRed from '@/Components/HTML/ProcessingButtonRed.vue'
 const app = getCurrentInstance()
 const form = useForm({
@@ -24,7 +25,10 @@ const submit = () => {
     <audio id="deleteButtonAudio" src="/audio/redbutton.mp3" preload="auto" />
     <NarrowLayout>
         <form @submit.prevent="submit">
-            <p class="mx-1 text-orange-800 dark:text-amber-100">{{ $msg.profileDeleteText }}</p>
+            <div class="flex justify-between items-start">
+                <p class="ml-1 mr-4 text-orange-800 dark:text-amber-100">{{ $msg.profileDeleteText }}</p>
+                <LocaleCycler />
+            </div>
             <div class="mt-4 mb-2 flex flex-row">
                 <ProcessingButtonRed v-model="form.processing" class="w-full" >{{ $msg.deleteUserAccount }}</ProcessingButtonRed>
             </div>

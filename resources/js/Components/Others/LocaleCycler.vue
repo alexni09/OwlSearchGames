@@ -24,7 +24,7 @@ const exec = (e) => {
     <div class="flex flex-row items-center py-1 pl-2 pr-[10px]
                 bg-amber-100 dark:bg-emerald-700
                 border-2 border-emerald-700 dark:border-amber-100 rounded cursor-pointer" 
-        @click.prevent="cycle" @keydown="exec" tabindex="0">
+        @click.prevent="cycle" @keydown.prevent="exec" tabindex="0">
         <GlobeIcon class="mr-1" />
         <span class="uppercase text-sm font-semibold text-emerald-700 dark:text-amber-100">{{ $locale.locale }}</span>
     </div>

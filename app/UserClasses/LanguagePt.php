@@ -173,7 +173,7 @@ class LanguagePt extends BaseLanguage {
         'passwordPlaceholder' => 'Digite sua palavra-passe...',
         'profileDelete' => 'Remover Perfil',
         'profileDeletePreText' => 'Ou, se desejar, pode cancelar esta conta.',
-        'profileDeleteText' => 'Remover esta conta exclui suas informações e termina o serviço de Caça-Palavra para este usuário.',
+        'profileDeleteText' => 'Remover esta conta exclui suas informações e termina o serviço Owl Search Games para este usuário.',
         'profileEdit' => 'Editar Perfil',
         'pronoun' => 'Pronome',
         'pronounSelect' => 'Selecione o Pronome',
