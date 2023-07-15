@@ -9,7 +9,7 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void {
-        Schema::create('banned_email_logs', function (Blueprint $table) {
+        Schema::create('banned_user_id_logs', function (Blueprint $table) {
             $table->id();
             $table->string('part');
             $table->unsignedTinyInteger('operation')->default(0); /* 0 = unspecified; 1 = registration; 2 = profile update */
@@ -27,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('banned_email_logs');
+        Schema::dropIfExists('banned_user_id_logs');
     }
 };
