@@ -14,6 +14,8 @@ use App\Events\UserRequestedAnotherVerificationEmail;
 use App\Listeners\SendAnotherEmailUpdatedVerificationNotification;
 use App\Events\BannedEmailFlagged;
 use App\Listeners\LogBannedEmail;
+use App\Events\BannedUserIdFlagged;
+use App\Listeners\LogBannedUserId;
 
 class EventServiceProvider extends ServiceProvider {
     /**
@@ -24,6 +26,9 @@ class EventServiceProvider extends ServiceProvider {
     protected $listen = [
         BannedEmailFlagged::class => [
             LogBannedEmail::class
+        ],
+        BannedUserIdFlagged::class => [
+            LogBannedUserId::class
         ],
         PasswordExpired::class => [
             SendEmailPasswordExpiredNotification::class

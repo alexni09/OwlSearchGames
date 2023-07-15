@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use App\UserClasses\BaseLanguage;
 use App\Models\BannedUserId;
+use App\Events\BannedUserIdFlagged;
 
 class UserIdBanned implements ValidationRule {
     /**
@@ -15,6 +16,9 @@ class UserIdBanned implements ValidationRule {
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void {
         $v = filter_var($value, FILTER_SANITIZE_ENCODED, FILTER_SANITIZE_SPECIAL_CHARS);
-        if (BannedUserId::isBanned($v)) $fail(BaseLanguage::getOneMessage('genericError'));
+        if (BannedUserId::isBanned($v)) {
+            event(new BannedUserIdFlagged($v));
+            $fail(BaseLanguage::getOneMessage('genericError'));
+        }
     }
 }
