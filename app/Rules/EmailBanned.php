@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use App\UserClasses\BaseLanguage;
 use App\Models\BannedEmail;
+use App\Events\BannedEmailFlagged;
 
 class EmailBanned implements ValidationRule {
     /**
@@ -15,6 +16,10 @@ class EmailBanned implements ValidationRule {
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void {
         $v = filter_var($value, FILTER_SANITIZE_ENCODED, FILTER_SANITIZE_SPECIAL_CHARS);
-        if (BannedEmail::isBanned($v)) $fail(BaseLanguage::getOneMessage('genericError'));
+        $v = str_replace('%40','@',$v);
+        if (BannedEmail::isBanned($v)) {
+            event(new BannedEmailFlagged($v));
+            $fail(BaseLanguage::getOneMessage('genericError')); 
+        }
     }
 }

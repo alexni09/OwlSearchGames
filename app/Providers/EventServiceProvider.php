@@ -13,6 +13,8 @@ use App\Events\UserUpdatedEmail;
 use App\Listeners\SendEmailUpdatedVerificationNotification;
 use App\Events\UserRequestedAnotherVerificationEmail;
 use App\Listeners\SendAnotherEmailUpdatedVerificationNotification;
+use App\Events\BannedEmailFlagged;
+use App\Listeners\LogBannedEmail;
 
 class EventServiceProvider extends ServiceProvider {
     /**
@@ -21,6 +23,9 @@ class EventServiceProvider extends ServiceProvider {
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
+        BannedEmailFlagged::class => [
+            LogBannedEmail::class
+        ],
         PasswordExpired::class => [
             SendEmailPasswordExpiredNotification::class
         ],
