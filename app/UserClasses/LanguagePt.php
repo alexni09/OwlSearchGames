@@ -66,6 +66,8 @@ class LanguagePt extends BaseLanguage {
         'emailVerificationSubject' => 'Verifique o Endereço de Email',
         'error' => 'ERRO',
         'execute' => 'executar',
+        'faq1' => 'FAQ',
+        'faq2' => 'Perguntas Frequentes',
         'faqAdvanced1' => 'P. O que está incluso no nível avançado?',
         'faqAdvanced2' => 'R. Muitas imagens de fundo exclusivas e a habilidade to gerar jogos muito difíceis.',
         'forgotMyPassword' => 'Esqueci a minha palavra-passe',

@@ -66,6 +66,8 @@ class LanguageEn extends BaseLanguage {
         'emailVerificationSubject' => 'Verify The Email Address',
         'error' => 'ERROR',
         'execute' => 'execute',
+        'faq1' => 'FAQ',
+        'faq2' => 'Frequently Asked Questions',
         'faqAdvanced1' => 'Q. What is included in the advanced level?',
         'faqAdvanced2' => 'A. Many new exclusive backgrounds and the ability to generate very difficult games.',
         'forgotMyPassword' => 'I forgot my password',

@@ -73,3 +73,5 @@ README_LARAVEL.md
 /resources/views/welcome.blade.php
 /routes/auth.php
 /routes/webtests.php
+/app/Http/Controllers/Public
+/resources/js/Pages/Public
