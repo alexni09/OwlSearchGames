@@ -34,6 +34,9 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 /* The Game */
 use App\Http\Controllers\Game\GameController;
 
+/* FAQ */
+use App\Http\Controllers\Public\FaqController;
+
 /* Admin Functions */
 use App\Http\Controllers\AdminFunctions\DirectDbController;
 use App\Http\Controllers\AdminFunctions\QueryDbController;
@@ -109,3 +112,6 @@ Route::patch('/directdb', [DirectDbController::class, 'execute'])->middleware('a
 /* Query DB */
 Route::get('/querydb', [QueryDbController::class, 'show'])->middleware('auth')->name('querydb.show');
 Route::post('/querydb', [QueryDbController::class, 'display'])->middleware('auth')->name('querydb.display');
+
+/* FAQ */
+Route::get('/faq', [FaqController::class, 'show'])->middleware('status')->name('faq');

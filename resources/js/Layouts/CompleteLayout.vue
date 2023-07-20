@@ -83,10 +83,11 @@ onUnmounted(() => {
                                 <span v-if="user.show_user_id" class="text-indigo-600 dark:text-indigo-300 text-sm font-semibold">&nbsp;[{{ user.user_id }}]</span>
                             </div>
                         </div>
-                        <!-- register, login -->
+                        <!-- register, login, faq -->
                         <div v-else class="mx-4">
-                            <div><Link :href="route('login')" class= "responsiveLink">{{ $msg.login2 }}</Link></div>
-                            <div><Link :href="route('register.create')" class= "responsiveLink">{{ $msg.register }}</Link></div>
+                            <div><Link :href="route('login')" class="responsiveLink">{{ $msg.login2 }}</Link></div>
+                            <div><Link :href="route('register.create')" class="responsiveLink">{{ $msg.register }}</Link></div>
+                            <div><Link :href="route('faq')" class="responsiveLink">{{ $msg.faq2 }}</Link></div>
                         </div>
                         <!-- locale -->
                         <div class="mx-4">

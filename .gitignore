@@ -47,6 +47,7 @@ README_LARAVEL.md
 /database/seeders/UserSeeder_DEV.php
 /lang0
 /OLD
+/private
 /public/audio0
 /public/fonts
 /public/images/favicon
@@ -73,4 +74,3 @@ README_LARAVEL.md
 /resources/views/welcome.blade.php
 /routes/auth.php
 /routes/webtests.php
-/resources/js/Pages/Public

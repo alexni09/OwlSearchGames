@@ -9,6 +9,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            rotate: {
+                '135': '135deg',
+            },
             screens: {
                 'xs': '475px',
                 ...defaultTheme.screens,

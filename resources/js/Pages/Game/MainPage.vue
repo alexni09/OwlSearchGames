@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, computed, toRaw, onMounted } from 'vue'
-import { Head, useForm, usePage } from '@inertiajs/vue3'
+import { Link, Head, useForm, usePage } from '@inertiajs/vue3'
 import CompleteLayout from '@/Layouts/CompleteLayout.vue'
 import TrophyZinc from '@/Components/SVG/Trophy/TrophyZinc.vue'
 import TrophyGold from '@/Components/SVG/Trophy/TrophyGold.vue'
@@ -64,9 +64,9 @@ const difficultyLevelBottomControl = computed(() => {
     forceRerenderDifficultyDisplay()
     return d
 })
-const keyDifficultyDisplay = ref(0);
+const keyDifficultyDisplay = ref(0)
 const forceRerenderDifficultyDisplay = () => {
-    keyDifficultyDisplay.value += 1;
+    keyDifficultyDisplay.value += 1
 }
 const form = useForm({
     directions: initialDirections,
@@ -170,6 +170,19 @@ onMounted(() => {
                     </div>
                 </div>
                 <!-- Extras -->
+                <div class="mt-8 bg-orange-50 dark:bg-green-800 bg-opacity-80 dark:bg-opacity-80 overflow-hidden shadow-sm rounded-lg">
+                    <div class="p-6 text-orange-800 dark:text-amber-100 font-semibold">
+                        <div class="flex flex-col md:flex-row justify-start place-items-top">
+                            <Link :href="route('faq')" 
+                                class="px-16 py-2 uppercase 
+                                    text-orange-800 dark:text-green-700 bg-orange-200 dark:bg-amber-100
+                                    border border-orange-900 dark:border-amber-200 rounded"
+                                as="button" type="button">
+                                {{ $msg.faq2 }}
+                            </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </CompleteLayout>
