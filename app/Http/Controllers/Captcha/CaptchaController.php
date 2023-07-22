@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Captcha\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
