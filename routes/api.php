@@ -8,4 +8,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('captchareload', [CaptchaReloadController::class, 'show'])->name('captcha.reload');
+Route::get('captcha-reload', [CaptchaReloadController::class, 'show'])->name('captcha.reload');
