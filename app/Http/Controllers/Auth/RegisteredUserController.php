@@ -55,7 +55,8 @@ class RegisteredUserController extends Controller {
             'show_pronoun' => ['required', 'boolean'],
             'show_name' => ['required', 'boolean'],
             'show_email' => ['required', 'boolean'],
-            'show_user_id' => ['required', 'boolean']
+            'show_user_id' => ['required', 'boolean'],
+            'captcha' => ['required', 'min:6', 'max:6', 'captcha']
         ]);
         $user = User::create([
             User::MAIN_FIELD => $request->user_id,

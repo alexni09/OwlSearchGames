@@ -16,7 +16,7 @@ onMounted(() => {
     <SaveLocaleBeforeUnload />
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 
                 bg-orange-200 dark:bg-green-600 border-b border-amber-100 dark:border-emerald-600
-                w-full h-[1280px] bg-cover"
+                w-full h-[1440px] bg-cover"
                 ref="backgroundDiv">
         <div>
             <ApplicationLogo />

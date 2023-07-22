@@ -40,7 +40,8 @@ const form = useForm({
     show_name: JSON.parse(getLocal(localFolder, 'show_name', "true")),
     show_pronoun: JSON.parse(getLocal(localFolder, 'show_pronoun', "true")),
     show_email: JSON.parse(getLocal(localFolder, 'show_email', "true")),
-    show_user_id: JSON.parse(getLocal(localFolder, 'show_user_id', "true"))
+    show_user_id: JSON.parse(getLocal(localFolder, 'show_user_id', "true")),
+    captcha: ''
 })
 const showName = ref(form.show_name)
 const showPronoun = ref(form.show_pronoun)
@@ -70,7 +71,17 @@ const submit = () => {
         }
     })
 }
+const htmlImgSrc = ref(null)
+const captchaReload = async () => {
+    htmlImgSrc.value = null
+    form.captcha = ''
+    await axios.get('/api/captcha-reload').then(response => { htmlImgSrc.value = response.data.url }).catch(error => { console.log(error) })
+}
+const errorCaptcha = computed(() => {
+    return form.errors.captcha != null ? app.appContext.config.globalProperties.$msg.captchaValidation : undefined
+})
 onMounted(() => {
+    captchaReload()
     document.getElementById('register-userId').focus()
 })
 watch(selectedLocale, () => {
@@ -108,6 +119,7 @@ watch(showUserId, () => {
     form.show_user_id = showUserId.value
     setLocal(localFolder, 'show_user_id', JSON.stringify(form.show_user_id))
 })
+watch(errorCaptcha, () => { captchaReload() })
 /* Inner Style(s): */
 const textFieldStyle = "block mt-1 w-full rounded-md shadow-sm bg-amber-100 dark:bg-lime-100 focus:bg-amber-200 focus:dark:bg-lime-200 border-amber-200 dark:border-emerald-700 focus:ring focus:ring-amber-300 focus:dark:ring-emerald-900 focus:ring-opacity-50"
 </script>
@@ -187,6 +199,25 @@ const textFieldStyle = "block mt-1 w-full rounded-md shadow-sm bg-amber-100 dark
             <div class="switchStyle">
                 <span class="labelSpanStyle">{{ $msg.showUserId }}</span>
                 <SwitchTwoState v-model="showUserId" />
+            </div>
+            <div class="mt-4">
+                <label for="register-captcha" class="labelSpanStyle">{{ $msg.captcha }}</label>
+                <div class="flex flex-row place-items-center py-3">
+                    <img v-if="htmlImgSrc !== null" :src="htmlImgSrc">
+                    <div v-else class="animate-pulse w-56 h-9 border-2 border-slate-300 rounded-sm">
+                        <div class="px-2 grid grid-cols-6 gap-2 h-full w-full items-center">
+                            <div class="h-2 bg-slate-200 rounded-md col-span-3" />
+                            <div class="h-2 bg-slate-200 rounded-md col-span-1" />
+                            <div class="h-2 bg-slate-200 rounded-md col-span-2" />
+                        </div>
+                    </div>
+                    <button class="ml-4 py-2 px-4 text-xl font-semibold w-fit
+                        text-orange-700 dark:text-amber-100
+                        border-2 border-orange-700 dark:border-amber-100 rounded-md cursor-pointer"
+                        @click.prevent="captchaReload">&#8635;</button>
+                </div>
+                <input v-model="form.captcha" id="register-captcha" type="text" class="fieldStyle" :placeholder="$msg.captchaPlaceholder">
+                <InputError :message="errorCaptcha" class="mt-2" />
             </div>
             <div class="mt-4 mb-1 flex flex-row-reverse">
                 <ProcessingButton v-model="form.processing" :disabled="form.processing" class="w-36" >{{ $msg.save }}</ProcessingButton>
