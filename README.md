@@ -2,7 +2,7 @@
 
 **Owl Search Games is an educative game: search for the words hidden inside a randomly generated grid. Each game is unique.**
 
-[Website](http://www.owlsearchgames.com)
+[Website](https://owlsearch.games)
 
 Quickly generate a game using this simple control:
 
@@ -16,7 +16,7 @@ A generated game will look like this:
 
 ![game image 3](/gitimages/osg3.png)
 
-[Play Now!](http://www.owlsearchgames.com)
+[Play Now!](https://owlsearch.games)
 
 ---
 
