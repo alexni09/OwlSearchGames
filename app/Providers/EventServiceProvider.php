@@ -16,6 +16,8 @@ use App\Events\BannedEmailFlagged;
 use App\Listeners\LogBannedEmail;
 use App\Events\BannedUserIdFlagged;
 use App\Listeners\LogBannedUserId;
+use App\Events\ContactEmailSent;
+use App\Listeners\SendContactEmailNotification;
 
 class EventServiceProvider extends ServiceProvider {
     /**
@@ -29,6 +31,9 @@ class EventServiceProvider extends ServiceProvider {
         ],
         BannedUserIdFlagged::class => [
             LogBannedUserId::class
+        ],
+        ContactEmailSent::class => [
+            SendContactEmailNotification::class
         ],
         PasswordExpired::class => [
             SendEmailPasswordExpiredNotification::class
