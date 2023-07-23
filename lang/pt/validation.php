@@ -186,6 +186,7 @@ return [
         'current_password' => 'palavra-passe atual',
         'lang' => 'linguagem',
         'locale_id' => 'linguagem',
+        'message' => 'mensagem',
         'new_password' => 'nova palavra-passe',
         'new_password_confirmation' => 'confirmar palavra-passe',
         'password' => 'palavra-passe',

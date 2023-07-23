@@ -170,6 +170,7 @@ class LanguageEn extends BaseLanguage {
         'mainWidth' => 'Width:',
         'mainWordCount' => '# of Words:',
         'mainWordDifficulty' => 'Word Difficulty:',
+        'messagePlaceholder' => 'Type in your message...',
         'name' => 'Name',
         'newQuery' => 'New Query',
         'noAccount' => 'No Account?',
@@ -213,6 +214,7 @@ class LanguageEn extends BaseLanguage {
         'searchTitle' => 'search title...',
         'selected' => 'Selected',
         'selectedPlural' => 'Selected',
+        'send' => 'Send',
         'showEmail' => 'Show email',
         'showName' => 'Show user name',
         'showPronoun' => 'Show title',
@@ -220,6 +222,7 @@ class LanguageEn extends BaseLanguage {
         'somethingWentWrong' => 'Something went wrong with your request.',
         'success' => 'Success!',
         'successDeleteProfile' => 'User account deleted.',
+        'successEmailHasBeenSent' => 'Your email has been sent.',
         'successStoreProfile' => 'New user created!',
         'successTokenExpiredResend' => 'Password reset email has been sent.',
         'successUpdatePassword' => 'Password updated successfully.',
@@ -250,6 +253,9 @@ class LanguageEn extends BaseLanguage {
         'welcomeWSG' => 'Welcome to the Owl Search Games!',
         'wordList' => 'Word List',
         'wordSearchGame' => 'Owl Search Games',
-        'whoops' => 'Whoops!'
+        'whoops' => 'Whoops!',
+        'yourEmail' => 'Your Email',
+        'yourMessage' => 'Your Message',
+        'yourName' => 'Your Name'
     ];
 }

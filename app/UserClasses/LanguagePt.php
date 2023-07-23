@@ -170,6 +170,7 @@ class LanguagePt extends BaseLanguage {
         'mainWidth' => 'Largura:',
         'mainWordCount' => 'Qtd. de Palavras:',
         'mainWordDifficulty' => 'Dificuldade das Palavras:',
+        'messagePlaceholder' => 'Digite sua mensagem...',
         'name' => 'Nome',
         'noAccount' => 'Não possui conta?',
         'newQuery' => 'Nova Consulta',
@@ -213,6 +214,7 @@ class LanguagePt extends BaseLanguage {
         'searchTitle' => 'pesquisar título...',
         'selected' => 'Selecionado',
         'selectedPlural' => 'Selecionados',
+        'send' => 'Enviar',
         'showEmail' => 'Exibir email',
         'showName' => 'Exibir nome do usuário',
         'showPronoun' => 'Exibir pronome',
@@ -220,6 +222,7 @@ class LanguagePt extends BaseLanguage {
         'somethingWentWrong' => 'Algo correu mal com o seu pedido.',
         'success' => 'Sucesso!',
         'successDeleteProfile' => 'Conta de usuário excluída.',
+        'successEmailHasBeenSent' => 'Seu email foi enviado.',
         'successStoreProfile' => 'Novo usuário foi criado!',
         'successTokenExpiredResend' => 'Email para atribuir nova palavra-passe foi enviado.',
         'successUpdatePassword' => 'Palavra-Passe atualizada.',
@@ -250,6 +253,9 @@ class LanguagePt extends BaseLanguage {
         'welcomeWSG' => 'Bem-vindo ao Owl Search Games!',
         'wordList' => 'Lista de Palavras',
         'wordSearchGame' => 'Owl Search Games',
-        'whoops' => 'Oops!'
+        'whoops' => 'Oops!',
+        'yourEmail' => 'Seu Email',
+        'yourMessage' => 'Sua Mensagem',
+        'yourName' => 'Seu Nome'
     ];
 }
