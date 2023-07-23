@@ -34,9 +34,6 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 /* The Game */
 use App\Http\Controllers\Game\GameController;
 
-/* FAQ */
-use App\Http\Controllers\Public\FaqController;
-
 /* Admin Functions */
 use App\Http\Controllers\AdminFunctions\DirectDbController;
 use App\Http\Controllers\AdminFunctions\QueryDbController;
@@ -45,6 +42,12 @@ use App\Http\Controllers\AdminFunctions\QueryDbController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+
+/* FAQ */
+use App\Http\Controllers\Public\FaqController;
+
+/* Contact Form */
+use App\Http\Controllers\Public\ContactFormController;
 
 /* Main Page */
 Route::get('/', [GameController::class, 'show'])->middleware('status')->name('home');
@@ -115,3 +118,7 @@ Route::post('/querydb', [QueryDbController::class, 'display'])->middleware('auth
 
 /* FAQ */
 Route::get('/faq', [FaqController::class, 'show'])->middleware('status')->name('faq');
+
+/* Contact Form */
+Route::get('/contact-form', [ContactFormController::class, 'show'])->middleware('status')->name('contact.show');
+Route::post('/contact-form', [ContactFormController::class, 'sendMail'])->middleware('status')->name('contact.sendmail');
