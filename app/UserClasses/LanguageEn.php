@@ -18,6 +18,7 @@ class LanguageEn extends BaseLanguage {
         'categoryFilter' => 'Filter by category',
         'categoryNotFilter' => 'Do NOT filter by category',
         'congratulations' => 'Congratulations!',
+        'contactForm' => 'Contact Form',
         'content' => 'Content',
         'contentPlaceholder' => 'Insert the content...',
         'country' => 'Country',

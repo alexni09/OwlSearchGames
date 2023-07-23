@@ -18,6 +18,7 @@ class LanguagePt extends BaseLanguage {
         'categoryFilter' => 'Filtrar por categoria',
         'categoryNotFilter' => 'NÃO filtrar por categoria',
         'congratulations' => 'Parabéns!',
+        'contactForm' => 'Formulário de Contacto',
         'content' => 'Conteúdo',
         'contentPlaceholder' => 'Insira o conteúdo...',
         'country' => 'País',
