@@ -75,7 +75,7 @@ const htmlImgSrc = ref(null)
 const captchaReload = async () => {
     htmlImgSrc.value = null
     form.captcha = ''
-    await axios.get('/api/captcha-reload').then(response => { htmlImgSrc.value = response.data.url }).catch(error => { console.log(error) })
+    await axios.get(route('captcha.reload')).then(response => { htmlImgSrc.value = response.data.url }).catch(error => { console.log(error) })
 }
 const errorCaptcha = computed(() => {
     return form.errors.captcha != null ? app.appContext.config.globalProperties.$msg.captchaValidation : undefined
