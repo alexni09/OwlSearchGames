@@ -169,16 +169,23 @@ onMounted(() => {
                         </div>
                     </div>
                 </div>
-                <!-- Extras -->
+                <!-- FAQ, Contact Form -->
                 <div class="mt-8 bg-orange-50 dark:bg-green-800 bg-opacity-80 dark:bg-opacity-80 overflow-hidden shadow-sm rounded-lg">
-                    <div class="p-6 text-orange-800 dark:text-amber-100 font-semibold">
-                        <div class="flex flex-col md:flex-row justify-start place-items-top">
+                    <div class="p-3 sm:p-4 md:p-5 lg:p-6 text-orange-800 dark:text-amber-100 font-semibold">
+                        <div class="flex flex-col md:flex-row justify-start md:justify-between place-items-top">
                             <Link :href="route('faq')" 
-                                class="px-16 py-2 uppercase 
+                                class="mb-2 xs:mb-3 sm:mb-4 md:mb-0 px-0 md:px-12 lg:px-14 xl:px-16 py-1 xs:py-1.5 sm:py-2 uppercase 
                                     text-orange-800 dark:text-green-700 bg-orange-200 dark:bg-amber-100
                                     border border-orange-900 dark:border-amber-200 rounded"
                                 as="button" type="button">
                                 {{ $msg.faq2 }}
+                            </Link>
+                            <Link :href="route('contact.show')" 
+                                class="px-0 md:px-12 lg:px-14 xl:px-16 py-1 xs:py-1.5 sm:py-2 uppercase
+                                    text-orange-800 dark:text-green-700 bg-orange-200 dark:bg-amber-100
+                                    border border-orange-900 dark:border-amber-200 rounded"
+                                as="button" type="button">
+                                {{ $msg.contactForm }}
                             </Link>
                         </div>
                     </div>
