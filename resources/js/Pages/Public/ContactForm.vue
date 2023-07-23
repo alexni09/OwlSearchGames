@@ -135,7 +135,8 @@ watch(errorCaptcha, () => { captchaReload() })
 </template>
 <style lang="postcss" scoped>
 .captchaFieldStyle {
-    @apply block mt-1 w-56 rounded-md shadow-sm 
+    @apply block mt-1 w-56 rounded-md shadow-sm
+    text-gray-600
     bg-amber-50 dark:bg-lime-50
     focus:bg-amber-100 focus:dark:bg-lime-100 
     border-amber-200 dark:border-emerald-700 
@@ -143,6 +144,7 @@ watch(errorCaptcha, () => { captchaReload() })
 }
 .fieldStyle {
     @apply block mt-1 w-full rounded-md shadow-sm 
+    text-gray-600
     bg-amber-50 dark:bg-lime-50
     focus:bg-amber-100 focus:dark:bg-lime-100 
     border-amber-200 dark:border-emerald-700 
@@ -160,6 +162,7 @@ watch(errorCaptcha, () => { captchaReload() })
 .textAreaStyle {
     @apply block mt-1 w-full rounded-md shadow-sm
     h-28 max-h-56
+    text-gray-600
     bg-amber-50 dark:bg-lime-50
     focus:bg-amber-100 focus:dark:bg-lime-100 
     border-amber-200 dark:border-emerald-700 
