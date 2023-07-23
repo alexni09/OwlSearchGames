@@ -1,7 +1,7 @@
 <script setup>
 import Swal from 'sweetalert2'
 import { toRaw, reactive, ref, getCurrentInstance, onMounted, computed, onUnmounted } from 'vue'
-import { usePage, useForm } from '@inertiajs/vue3'
+import { Head, usePage, useForm } from '@inertiajs/vue3'
 import CompleteLayout from '@/Layouts/CompleteLayout.vue'
 import ShineBlur from '@/Components/CSS/ShineBlur.vue'
 import StarPinkFuchsia from '@/Components/SVG/Star/StarPinkFuchsia.vue'
@@ -207,6 +207,7 @@ onUnmounted(() => {
 })
 </script>
 <template>
+    <Head :title="$msg.home" />
     <audio id="chime" src="/audio/chime.mp3" preload="auto" />
     <audio id="positive_beep1" src="/audio/positive_beep1.mp3" preload="auto" />
     <audio id="positive_beep2" src="/audio/positive_beep2.mp3" preload="auto" />
