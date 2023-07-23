@@ -217,7 +217,7 @@ const textFieldStyle = "block mt-1 w-full rounded-md shadow-sm bg-amber-100 dark
                         @click.prevent="captchaReload">&#8635;</button>
                 </div>
                 <input v-model="form.captcha" id="register-captcha" type="text" class="fieldStyle" :placeholder="$msg.captchaPlaceholder"
-                    @keydown.enter.prevent="" @keydown.space.prevent="">
+                    maxlength="6" @keydown.enter.prevent="" @keydown.space.prevent="">
                 <InputError :message="errorCaptcha" class="mt-2" />
             </div>
             <div class="mt-4 mb-1 flex flex-row-reverse">

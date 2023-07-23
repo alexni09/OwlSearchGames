@@ -107,7 +107,7 @@ watch(errorCaptcha, () => { captchaReload() })
                                     <div class="flex flex-row justify-between items-baseline">
                                         <div class="flex flex-col justify-start">
                                             <input v-model="form.captcha" id="contact-captcha" type="text" class="captchaFieldStyle" :placeholder="$msg.captchaPlaceholder"
-                                                @keydown.enter.prevent="" @keydown.space.prevent="">
+                                                maxlength="6" @keydown.enter.prevent="" @keydown.space.prevent="">
                                             <InputError :message="errorCaptcha" class="mt-2" />
                                         </div>
                                         <div class="flex flex-row-reverse">
