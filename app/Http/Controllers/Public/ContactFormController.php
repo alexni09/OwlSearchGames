@@ -8,6 +8,9 @@ use Inertia\Inertia;
 use Inertia\Response;
 use Illuminate\Http\RedirectResponse;
 use App\Models\User;
+use Symfony\Component\Mailer\Exception\TransportException;
+use App\Events\ContactEmailSent;
+use App\Providers\RouteServiceProvider;
 
 class ContactFormController extends Controller {
     public function show(): Response {
@@ -19,9 +22,14 @@ class ContactFormController extends Controller {
             User::MAIN_FIELD => ['nullable', 'string', 'exists:users'],
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:100'],
-            'message' => ['required', 'string', 'max:500'],
+            'message' => ['required', 'string', 'max:250'],
             'captcha' => ['required', 'min:6', 'max:6', 'captcha']
-    ]);
-        dd('approved');
+        ]);
+        try {
+            event(new ContactEmailSent($request->name, $request->email, $request->message, $request->user_id));
+        } catch(TransportException) {
+            return Inertia::render('Auth/EmailNotSent');
+        }
+        return redirect(RouteServiceProvider::HOME);
     }
 }

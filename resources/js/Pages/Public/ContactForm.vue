@@ -85,7 +85,7 @@ watch(errorCaptcha, () => { captchaReload() })
                                 <div class="mt-4">
                                     <label for="contact-message" class="labelStyle">{{ $msg.yourMessage }}</label>
                                     <textarea v-model="form.message" id="contact-message" class="textAreaStyle" :placeholder="$msg.messagePlaceholder"
-                                        @change="setSession(localFolder, 'message', form.message)" />
+                                        maxlength="250" @change="setSession(localFolder, 'message', form.message)" />
                                     <InputError :message="form.errors.message" class="mt-2" />
                                 </div>
                                 <div class="mt-4">
