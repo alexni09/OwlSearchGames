@@ -380,7 +380,7 @@ class AuthTest extends TestCase {
         $response->assertStatus(403);
     }
 
-    public function test_admin_accesses_directdb_patch(): void {
+    public function test_admin_executes_directdb_patch_successfully(): void {
         $rnd = strval(rand(1000000,9999999));
         $response = $this->actingAs($this->admin)->patch('/directdb', [ 'query' => $this->directDbQuery1. $rnd. $this->directDbQuery2 ]);
         $response->assertStatus(302);
