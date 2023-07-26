@@ -349,6 +349,22 @@ class AuthTest extends TestCase {
         $response->assertStatus(200);
     }
 
+    public function test_unauthenticated_cannot_access_directdb_get(): void {
+        $response = $this->get('/directdb');
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_generic_cannot_access_directdb_get(): void {
+        $response = $this->actingAs($this->generic)->get('/directdb');
+        $response->assertStatus(403);
+    }
+
+    public function test_admin_accesses_directdb_get(): void {
+        $response = $this->actingAs($this->admin)->get('/directdb');
+        $response->assertStatus(200);
+    }
+
     public function test_the_contact_form_returns_a_successful_response(): void {
         $response = $this->get('/contact-form');
         $response->assertStatus(200);
