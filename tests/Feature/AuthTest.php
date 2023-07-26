@@ -18,7 +18,6 @@ class AuthTest extends TestCase {
     public $generic = null;
     public $advanced = null;
     public $premium = null;
-    public $maxScoreId = null;
 
     protected function setUp(): void {
         parent::setUp();
