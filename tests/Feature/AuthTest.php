@@ -30,6 +30,8 @@ class AuthTest extends TestCase {
         $this->generic = User::find($this->genericId);
         $this->advanced = User::find($this->advancedId);
         $this->premium = User::find($this->premiumId);
+        $this->directDbQuery1 = "update valves set this_value = '";
+        $this->directDbQuery2 = "' where this_key = 'dummy'";
     }
 
     public function test_user_id_admin_exists(): void {
@@ -363,6 +365,27 @@ class AuthTest extends TestCase {
     public function test_admin_accesses_directdb_get(): void {
         $response = $this->actingAs($this->admin)->get('/directdb');
         $response->assertStatus(200);
+    }
+
+    public function test_unauthenticated_cannot_access_directdb_patch(): void {
+        $rnd = strval(rand(1000000,9999999));
+        $response = $this->patch('/directdb', [ 'query' => $this->directDbQuery1. $rnd. $this->directDbQuery2 ]);
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_generic_cannot_access_directdb_patch(): void {
+        $rnd = strval(rand(1000000,9999999));
+        $response = $this->actingAs($this->generic)->patch('/directdb', [ 'query' => $this->directDbQuery1. $rnd. $this->directDbQuery2 ]);
+        $response->assertStatus(403);
+    }
+
+    public function test_admin_accesses_directdb_patch(): void {
+        $rnd = strval(rand(1000000,9999999));
+        $response = $this->actingAs($this->admin)->patch('/directdb', [ 'query' => $this->directDbQuery1. $rnd. $this->directDbQuery2 ]);
+        $response->assertStatus(302);
+        $this->assertEquals($rnd, Valve::getValue('dummy'));
+        $response->assertRedirect('/');
     }
 
     public function test_the_contact_form_returns_a_successful_response(): void {
