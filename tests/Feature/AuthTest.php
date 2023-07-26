@@ -317,6 +317,38 @@ class AuthTest extends TestCase {
         $this->assertEquals(0,Score::getCountForAfterCleansing($arr));
     }
 
+    public function test_unauthenticated_cannot_access_querydb_get(): void {
+        $response = $this->get('/querydb');
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_generic_cannot_access_querydb_get(): void {
+        $response = $this->actingAs($this->generic)->get('/querydb');
+        $response->assertStatus(403);
+    }
+
+    public function test_admin_accesses_querydb_get(): void {
+        $response = $this->actingAs($this->admin)->get('/querydb');
+        $response->assertStatus(200);
+    }
+
+    public function test_unauthenticated_cannot_access_querydb_post(): void {
+        $response = $this->get('/querydb');
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_generic_cannot_access_querydb_post(): void {
+        $response = $this->actingAs($this->generic)->get('/querydb');
+        $response->assertStatus(403);
+    }
+
+    public function test_admin_accesses_querydb_post(): void {
+        $response = $this->actingAs($this->admin)->get('/querydb');
+        $response->assertStatus(200);
+    }
+
     public function test_the_contact_form_returns_a_successful_response(): void {
         $response = $this->get('/contact-form');
         $response->assertStatus(200);
