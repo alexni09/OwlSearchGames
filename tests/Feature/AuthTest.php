@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Valve;
 use App\Models\User;
+use App\Models\Score;
 
 class AuthTest extends TestCase {
     public $adminId = null;
@@ -17,6 +18,7 @@ class AuthTest extends TestCase {
     public $generic = null;
     public $advanced = null;
     public $premium = null;
+    public $maxScoreId = null;
 
     protected function setUp(): void {
         parent::setUp();
@@ -122,7 +124,7 @@ class AuthTest extends TestCase {
             'y' => 10,
             'count' => 12,
             'worddiff' => null,
-            'difficulty' => 200
+            'difficulty' => -1200
         ]);
         $response->assertStatus(200);
     }
@@ -135,7 +137,7 @@ class AuthTest extends TestCase {
             'y' => 14,
             'count' => 17,
             'worddiff' => null,
-            'difficulty' => 350
+            'difficulty' => -1350
         ]);
         $response->assertStatus(403);
     }
@@ -148,7 +150,7 @@ class AuthTest extends TestCase {
             'y' => 16,
             'count' => 22,
             'worddiff' => null,
-            'difficulty' => 550
+            'difficulty' => -1550
         ]);
         $response->assertStatus(403);
     }
@@ -161,7 +163,7 @@ class AuthTest extends TestCase {
             'y' => 10,
             'count' => 12,
             'worddiff' => null,
-            'difficulty' => 250
+            'difficulty' => -1250
         ]);
         $response->assertStatus(200);
     }
@@ -174,7 +176,7 @@ class AuthTest extends TestCase {
             'y' => 14,
             'count' => 17,
             'worddiff' => null,
-            'difficulty' => 350
+            'difficulty' => -1350
         ]);
         $response->assertStatus(403);
     }
@@ -187,7 +189,7 @@ class AuthTest extends TestCase {
             'y' => 16,
             'count' => 22,
             'worddiff' => null,
-            'difficulty' => 550
+            'difficulty' => -1550
         ]);
         $response->assertStatus(403);
     }
@@ -200,7 +202,7 @@ class AuthTest extends TestCase {
             'y' => 10,
             'count' => 12,
             'worddiff' => null,
-            'difficulty' => 250
+            'difficulty' => -1250
         ]);
         $response->assertStatus(200);
     }
@@ -213,7 +215,7 @@ class AuthTest extends TestCase {
             'y' => 14,
             'count' => 17,
             'worddiff' => null,
-            'difficulty' => 350
+            'difficulty' => -1350
         ]);
         $response->assertStatus(200);
     }
@@ -226,7 +228,7 @@ class AuthTest extends TestCase {
             'y' => 16,
             'count' => 22,
             'worddiff' => null,
-            'difficulty' => 550
+            'difficulty' => -1550
         ]);
         $response->assertStatus(403);
     }
@@ -239,7 +241,7 @@ class AuthTest extends TestCase {
             'y' => 10,
             'count' => 12,
             'worddiff' => null,
-            'difficulty' => 250
+            'difficulty' => -1250
         ]);
         $response->assertStatus(200);
     }
@@ -252,7 +254,7 @@ class AuthTest extends TestCase {
             'y' => 14,
             'count' => 17,
             'worddiff' => null,
-            'difficulty' => 350
+            'difficulty' => -1350
         ]);
         $response->assertStatus(200);
     }
@@ -265,7 +267,7 @@ class AuthTest extends TestCase {
             'y' => 16,
             'count' => 22,
             'worddiff' => null,
-            'difficulty' => 550
+            'difficulty' => -1550
         ]);
         $response->assertStatus(200);
     }
@@ -278,7 +280,7 @@ class AuthTest extends TestCase {
             'y' => 10,
             'count' => 12,
             'worddiff' => null,
-            'difficulty' => 250
+            'difficulty' => -1250
         ]);
         $response->assertStatus(200);
     }
@@ -291,7 +293,7 @@ class AuthTest extends TestCase {
             'y' => 14,
             'count' => 17,
             'worddiff' => null,
-            'difficulty' => 350
+            'difficulty' => -1350
         ]);
         $response->assertStatus(200);
     }
@@ -304,9 +306,15 @@ class AuthTest extends TestCase {
             'y' => 16,
             'count' => 22,
             'worddiff' => null,
-            'difficulty' => 550
+            'difficulty' => -1550
         ]);
         $response->assertStatus(200);
+    }
+
+    public function test_scores_are_cleansed(): void {
+        $arr = [ $this->admin->user_id, $this->generic->user_id, $this->advanced->user_id, $this->premium->user_id ];
+        Score::cleanse($arr);
+        $this->assertEquals(0,Score::getCountForAfterCleansing($arr));
     }
 
     public function test_the_contact_form_returns_a_successful_response(): void {
