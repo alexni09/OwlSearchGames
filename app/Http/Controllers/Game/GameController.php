@@ -40,7 +40,6 @@ class GameController extends Controller {
             ]);
             $score_id = $score->id;
         }
-        sleep(2);
         return Inertia::render('Game/CreateGame', [
             'wordSearchGame' => $wsg->getAll(),
             'score_id' => $score_id,
