@@ -84,7 +84,7 @@ class AuthTest extends TestCase {
 
     public function test_login_unauthenticated_redirects_to_home() {
         $response = $this->post('/login', [
-            'email' => $this->generic->user_id,
+            'user_id' => $this->generic->user_id,
             'password' => Valve::getValue('genericPw')
         ]);
         $response->assertStatus(302);
@@ -99,11 +99,21 @@ class AuthTest extends TestCase {
 
     public function test_login_authenticated_post_redirects_to_home() {
         $response = $this->actingAs($this->generic)->post('/login', [
-            'email' => $this->generic->user_id,
+            'user_id' => $this->generic->user_id,
             'password' => Valve::getValue('genericPw')
         ]);
         $response->assertStatus(302);
         $response->assertRedirect('/');
+    }
+
+    public function test_failed_login_redirects_back() {
+        $response = $this->post('/login', [
+            'user_id' => $this->advanced->user_id,
+            'password' => 'FakePW98765',
+            'rememberMe' => true
+        ]);
+        $response->assertStatus(302);
+        $response->assertInvalid(['user_id']);
     }
 
     public function test_the_faq_page_returns_a_successful_response(): void {
