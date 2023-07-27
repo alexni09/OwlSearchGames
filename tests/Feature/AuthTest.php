@@ -475,4 +475,28 @@ class AuthTest extends TestCase {
         $response->assertStatus(302);
         $response->assertRedirect('/');
     }
+
+    public function test_unauthenticated_cannot_change_profile_method_get(): void {
+        $response = $this->get('/profile');
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_unauthenticated_cannot_change_profile_method_patch(): void {
+        $response = $this->patch('/profile');
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_unauthenticated_cannot_change_profile_method_post(): void {
+        $response = $this->post('/profile');
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_unauthenticated_cannot_change_profile_method_delete(): void {
+        $response = $this->delete('/profile');
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
 }
