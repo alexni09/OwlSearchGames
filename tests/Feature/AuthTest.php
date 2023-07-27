@@ -505,7 +505,7 @@ class AuthTest extends TestCase {
         $response->assertStatus(200);
     }
 
-    public function test_generic_updtates_profile_succesfully(): void {
+    public function test_generic_updates_profile_succesfully(): void {
         $arr = [
             'name' => Valve::getValue('genericName2'),
             'email' => Valve::getValue('genericEmail1'),
