@@ -63,7 +63,7 @@ class AuthTest extends TestCase {
 
     public function test_user_premium_is_correct(): void {
         $this->assertEquals(Valve::getValue('premiumUserId'),$this->premium->user_id);
-    } 
+    }
 
     public function test_the_application_returns_a_successful_response(): void {
         $response = $this->get('/');
@@ -562,4 +562,8 @@ class AuthTest extends TestCase {
         $response->assertStatus(403);
     }
 
+    public function test_admin_cannot_delete(): void {
+        $response = $this->actingAs($this->admin)->delete('/profile');
+        $response->assertStatus(403);
+    }
 }
