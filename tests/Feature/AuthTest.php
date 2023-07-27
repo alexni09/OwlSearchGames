@@ -387,8 +387,19 @@ class AuthTest extends TestCase {
         $response->assertRedirect('/');
     }
 
-    public function test_the_contact_form_returns_a_successful_response(): void {
+    public function test_contact_form_returns_a_successful_response(): void {
         $response = $this->get('/contact-form');
         $response->assertStatus(200);
+    }
+
+    public function test_contact_form_validation_error_redirects_back(): void {
+        $response = $this->post('/contact-form', [
+            User::MAIN_FIELD => null,
+            'name' => 'Jane Doe',
+            'email' => 'jane@doe.me',
+            'message' => 'Testing..',
+        ]);
+        $response->assertStatus(302);
+        $response->assertInvalid(['captcha']);
     }
 }
