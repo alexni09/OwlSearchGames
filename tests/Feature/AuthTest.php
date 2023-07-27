@@ -419,4 +419,9 @@ class AuthTest extends TestCase {
         $response->assertRedirect('/login');
     }
 
+    public function test_generic_accesses_change_password_form_successfully(): void {
+        $response = $this->actingAs($this->generic)->get('/updatePassword');
+        $response->assertStatus(200);
+    }
+
 }
