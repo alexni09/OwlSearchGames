@@ -535,4 +535,20 @@ class AuthTest extends TestCase {
         $response->assertRedirect('/');
         $this->assertDatabaseHas('users', $arr);
     }
+
+    public function test_generic_fails_to_update_profile(): void {
+        $arr = [
+            'name' => Valve::getValue('genericName2'),
+            'email' => 'wrong',
+            'locale_id' => 2,
+            'pronoun_id' => 7,
+            'show_pronoun' => false,
+            'show_name' => false,
+            'show_user_id' => false,
+            'show_email' => false
+        ];
+        $response = $this->actingAs($this->generic)->patch('/profile', $arr);
+        $response->assertValid(['name','locale_id','pronoun_id','show_pronoun','show_name','show_user_id','show_email']);
+        $response->assertInvalid(['email']);
+    }
 }
