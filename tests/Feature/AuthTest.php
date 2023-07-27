@@ -412,4 +412,11 @@ class AuthTest extends TestCase {
         $response->assertStatus(302);
         $response->assertInvalid(['captcha']);
     }
+
+    public function test_unauthenticated_cannot_change_password_method_get(): void {
+        $response = $this->get('/updatePassword');
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
 }
