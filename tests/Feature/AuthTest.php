@@ -410,7 +410,20 @@ class AuthTest extends TestCase {
             'message' => 'Testing..',
         ]);
         $response->assertStatus(302);
+        $response->assertValid([User::MAIN_FIELD,'name','email','message']);
         $response->assertInvalid(['captcha']);
+    }
+
+    public function test_contact_form_with_bad_user_id_redirects_back(): void {
+        $response = $this->post('/contact-form', [
+            User::MAIN_FIELD => 'unknown',
+            'name' => 'Jane Doe',
+            'email' => 'jane@doe.me',
+            'message' => 'Testing...1..2..3..',
+        ]);
+        $response->assertStatus(302);
+        $response->assertValid(['name','email','message']);
+        $response->assertInvalid([User::MAIN_FIELD, 'captcha']);
     }
 
     public function test_unauthenticated_cannot_change_password_method_get(): void {
@@ -431,6 +444,7 @@ class AuthTest extends TestCase {
             'new_password' => 'NewPW3456',
             'new_password_confirmation' => 'NewPW3456'
         ]);
+        $response->assertValid(['current_password','new_password','new_password_confirmation']);
         $response->assertStatus(302);
         $response->assertRedirect('/');
         /* 2) Change a user's password back: */
@@ -439,6 +453,7 @@ class AuthTest extends TestCase {
             'new_password' => Valve::getValue('genericPW'),
             'new_password_confirmation' => Valve::getValue('genericPW')
         ]);
+        $response->assertValid(['current_password','new_password','new_password_confirmation']);
         $response->assertStatus(302);
         $response->assertRedirect('/');
     }
