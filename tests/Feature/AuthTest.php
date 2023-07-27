@@ -464,7 +464,7 @@ class AuthTest extends TestCase {
         $response->assertRedirect('/');
     }
 
-    public function test_generic_fails_to_provide_correct_password_confiration(): void {
+    public function test_generic_fails_to_provide_correct_password_confirmation(): void {
         $response = $this->actingAs($this->generic)->patch('/updatePassword', [
             'current_password' => Valve::getValue('genericPW'),
             'new_password' => 'NewPW3456',
