@@ -499,4 +499,40 @@ class AuthTest extends TestCase {
         $response->assertStatus(302);
         $response->assertRedirect('/login');
     }
+
+    public function test_generic_accesses_profile_succesfully(): void {
+        $response = $this->actingAs($this->generic)->get('/profile');
+        $response->assertStatus(200);
+    }
+
+    public function test_generic_updtates_profile_succesfully(): void {
+        $arr = [
+            'name' => Valve::getValue('genericName2'),
+            'email' => Valve::getValue('genericEmail1'),
+            'locale_id' => 2,
+            'pronoun_id' => 7,
+            'show_pronoun' => false,
+            'show_name' => false,
+            'show_user_id' => false,
+            'show_email' => false
+        ];
+        $response = $this->actingAs($this->generic)->patch('/profile', $arr);
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+        $this->assertDatabaseHas('users', $arr);
+        $arr = [
+            'name' => Valve::getValue('genericName1'),
+            'email' => Valve::getValue('genericEmail1'),
+            'locale_id' => 2,
+            'pronoun_id' => 7,
+            'show_pronoun' => true,
+            'show_name' => true,
+            'show_user_id' => true,
+            'show_email' => true
+        ];
+        $response = $this->actingAs($this->generic)->patch('/profile', $arr);
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+        $this->assertDatabaseHas('users', $arr);
+    }
 }
