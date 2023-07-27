@@ -437,6 +437,12 @@ class AuthTest extends TestCase {
         $response->assertStatus(200);
     }
 
+    public function test_unauthenticated_cannot_change_password_method_patch(): void {
+        $response = $this->patch('/updatePassword');
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
     public function test_generic_changes_password_successfully(): void {
         /* 1) Change a user's password: */
         $response = $this->actingAs($this->generic)->patch('/updatePassword', [
