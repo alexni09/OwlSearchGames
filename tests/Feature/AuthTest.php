@@ -551,4 +551,15 @@ class AuthTest extends TestCase {
         $response->assertValid(['name','locale_id','pronoun_id','show_pronoun','show_name','show_user_id','show_email']);
         $response->assertInvalid(['email']);
     }
+
+    public function test_generic_accesses_profile_predelete_succesfully(): void {
+        $response = $this->actingAs($this->generic)->post('/profile');
+        $response->assertStatus(200);
+    }
+
+    public function test_admin_cannot_predelete(): void {
+        $response = $this->actingAs($this->admin)->post('/profile');
+        $response->assertStatus(403);
+    }
+
 }
