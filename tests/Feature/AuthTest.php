@@ -567,6 +567,7 @@ class AuthTest extends TestCase {
         $this->assertDatabaseMissing('role_user', [ User::MAIN_FIELD => $user->id ]);
         $this->assertDatabaseHas('deleted_role_users', [ User::MAIN_FIELD => $userId ]);
         $this->assertDatabaseHas('user_updates', [ 'operation' => 'D', User::MAIN_FIELD => $userId ]);
+        $this->assertDatabaseHas('user_ids', [ User::MAIN_FIELD => $userId ]);
     }
 
     public function test_someone_gets_reinstated(): void {
