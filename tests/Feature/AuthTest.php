@@ -27,10 +27,10 @@ class AuthTest extends TestCase {
 
     protected function setUp(): void {
         parent::setUp();
-        $this->adminId = intval(Valve::getValue('adminId'));
-        $this->genericId = intval(Valve::getValue('genericId'));
-        $this->advancedId = intval(Valve::getValue('advancedId'));
-        $this->premiumId = intval(Valve::getValue('premiumId'));
+        $this->adminId = User::getIdFromUserId((Valve::getValue('adminUserId')));
+        $this->genericId = User::getIdFromUserId((Valve::getValue('genericUserId')));
+        $this->advancedId = User::getIdFromUserId((Valve::getValue('advancedUserId')));
+        $this->premiumId = User::getIdFromUserId((Valve::getValue('premiumUserId')));
         $this->admin = User::find($this->adminId);
         $this->generic = User::find($this->genericId);
         $this->advanced = User::find($this->advancedId);
