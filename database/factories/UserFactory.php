@@ -9,18 +9,15 @@ use App\Models\User;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class UserFactory extends Factory
-{
+class UserFactory extends Factory {
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
-    {
-        
+    public function definition(): array {
         return [
-            User::MAIN_FIELD => 'abcdefgh',
+            User::MAIN_FIELD => 'factory' . Str::random(8),
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
@@ -29,8 +26,6 @@ class UserFactory extends Factory
             'locale_id' => 2,
             'pronoun_id' => 7
         ];
-        
-        //return [  ];
     }
 
     /**
