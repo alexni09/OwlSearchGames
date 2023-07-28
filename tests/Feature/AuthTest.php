@@ -8,6 +8,12 @@ use Tests\TestCase;
 use App\Models\Valve;
 use App\Models\User;
 use App\Models\Score;
+use App\Models\Role;
+use App\Models\Pronoun;
+use App\Models\Locale;
+use Illuminate\Support\Str;
+use App\Models\UserUpdate;
+use App\Models\DeletedRoleUser;
 
 class AuthTest extends TestCase {
     public $adminId = null;
@@ -562,8 +568,60 @@ class AuthTest extends TestCase {
         $response->assertStatus(403);
     }
 
-    public function test_admin_cannot_delete(): void {
+    public function test_admin_cannot_delete_itself(): void {
         $response = $this->actingAs($this->admin)->delete('/profile');
         $response->assertStatus(403);
+    }
+
+    public function test_someone_gets_deleted(): void {
+        $userId = Valve::getValue('someone');
+        $user = User::find(User::getIdFromUserId($userId));
+        $response = $this->actingAs($user)->delete('/profile');
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+        $this->assertDatabaseMissing('users', [ User::MAIN_FIELD => $userId ]);
+        $this->assertDatabaseMissing('role_user', [ User::MAIN_FIELD => $user->id ]);
+        $this->assertDatabaseHas('deleted_role_users', [ User::MAIN_FIELD => $userId ]);
+        $this->assertDatabaseHas('user_updates', [ 'operation' => 'D', User::MAIN_FIELD => $userId ]);
+    }
+
+    public function test_someone_gets_reinstated(): void {
+        $locale = Valve::getValue('someoneLocale');
+        $locale_id = Locale::getIdFromLocale($locale);
+        $pronoun = Valve::getValue('someonePronoun');
+        $pronoun_id = Pronoun::getIdFromLocalePronoun($locale_id,$pronoun);
+        $userId = Valve::getValue('someone');
+        $name = Valve::getValue('someoneName');
+        $hsh = Valve::getValue('someoneHash');
+        $email = Valve::getValue('someoneEmail');
+        $role1 = Role::getIdByName('user.generic');
+        $role2 = Role::getIdByName('editor.pt');
+        $role3 = Role::getIdByName('editor.en');
+        UserUpdate::undelete($userId);
+        $userUpdate = UserUpdate::where(User::MAIN_FIELD,$userId)->where('operation','E')->get()[0];
+        $user = User::create([
+            User::MAIN_FIELD => $userId,
+            User::PASSWORD_FIELD => $hsh,
+            'name' => $name,
+            'email' => $email,
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+            'locale_id' => $locale_id,
+            'pronoun_id' => $pronoun_id,
+            'show_pronoun' => $userUpdate->show_pronoun,
+            'show_name' => $userUpdate->show_name,
+            'show_email' => $userUpdate->show_email,
+            'show_user_id' => $userUpdate->show_user_id
+        ]);
+        User::undeleteRoles($userId);
+        DeletedRoleUser::deleteAllRolesByUserId($userId);
+        $userUpdate->operation = 'R';
+        $userUpdate->save();
+        $this->assertDatabaseHas('users', [ User::MAIN_FIELD => $userId ]);
+        $this->assertDatabaseHas('user_updates', [ 'operation' => 'R', User::MAIN_FIELD => $userId ]);
+        $this->assertDatabaseHas('role_user', [ User::MAIN_FIELD => $user->id, 'role_id' => $role1 ]);
+        $this->assertDatabaseHas('role_user', [ User::MAIN_FIELD => $user->id, 'role_id' => $role2 ]);
+        $this->assertDatabaseHas('role_user', [ User::MAIN_FIELD => $user->id, 'role_id' => $role3 ]);
+        $this->assertDatabaseMissing('deleted_role_users', [ User::MAIN_FIELD => $userId ]);
     }
 }
