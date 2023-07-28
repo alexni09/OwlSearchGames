@@ -608,5 +608,6 @@ class AuthTest extends TestCase {
         $this->assertDatabaseHas('role_user', [ User::MAIN_FIELD => $user->id, 'role_id' => $role2 ]);
         $this->assertDatabaseHas('role_user', [ User::MAIN_FIELD => $user->id, 'role_id' => $role3 ]);
         $this->assertDatabaseMissing('deleted_role_users', [ User::MAIN_FIELD => $userId ]);
+        $this->assertDatabaseHas('user_ids', [ User::MAIN_FIELD => $userId ]);
     }
 }
