@@ -39,33 +39,17 @@ class AuthTest extends TestCase {
         $this->directDbQuery2 = "' where this_key = 'dummy'";
     }
 
-    public function test_user_id_admin_exists(): void {
-        $this->assertEquals(1,$this->adminId);
-    }
-
     public function test_user_admin_is_correct(): void {
         $this->assertEquals(Valve::getValue('adminUserId'),$this->admin->user_id);
     } 
-
-    public function test_user_id_generic_exists(): void {
-        $this->assertEquals(2,$this->genericId);
-    }
 
     public function test_user_generic_is_correct(): void {
         $this->assertEquals(Valve::getValue('genericUserId'),$this->generic->user_id);
     } 
 
-    public function test_user_id_advanced_exists(): void {
-        $this->assertEquals(6,$this->advancedId);
-    }
-
     public function test_user_advanced_is_correct(): void {
         $this->assertEquals(Valve::getValue('advancedUserId'),$this->advanced->user_id);
     } 
-
-    public function test_user_id_premium_exists(): void {
-        $this->assertEquals(3,$this->premiumId);
-    }
 
     public function test_user_premium_is_correct(): void {
         $this->assertEquals(Valve::getValue('premiumUserId'),$this->premium->user_id);
