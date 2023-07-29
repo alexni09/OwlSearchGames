@@ -138,17 +138,17 @@ class AuthTest extends TestCase {
         $this->assertTrue($flag);
     }
 
-    public function test_unauthenticated_generates_game_successfully(): void {
+    public function test_unauthenticated_cannot_generate_insane_game(): void {
         $response = $this->post('/wordgame', [
             'directions' => false,
-            'difficultyLevel' => 1,
-            'x' => 13,
-            'y' => 10,
-            'count' => 12,
+            'difficultyLevel' => 4,
+            'x' => 25,
+            'y' => 16,
+            'count' => 22,
             'worddiff' => null,
-            'difficulty' => -1200
+            'difficulty' => -1550
         ]);
-        $response->assertStatus(200);
+        $response->assertStatus(403);
     }
 
     public function test_unauthenticated_cannot_generate_very_difficult_game(): void {
@@ -164,17 +164,17 @@ class AuthTest extends TestCase {
         $response->assertStatus(403);
     }
 
-    public function test_unauthenticated_cannot_generate_insane_game(): void {
+    public function test_unauthenticated_generates_game_successfully(): void {
         $response = $this->post('/wordgame', [
             'directions' => false,
-            'difficultyLevel' => 4,
-            'x' => 25,
-            'y' => 16,
-            'count' => 22,
+            'difficultyLevel' => 1,
+            'x' => 13,
+            'y' => 10,
+            'count' => 12,
             'worddiff' => null,
-            'difficulty' => -1550
+            'difficulty' => -1200
         ]);
-        $response->assertStatus(403);
+        $response->assertStatus(200);
     }
 
     public function test_generic_cannot_generate_insane_game(): void {
