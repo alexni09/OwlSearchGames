@@ -816,4 +816,21 @@ class AuthTest extends TestCase {
         $response = $this->actingAs($this->generic)->patch('/password-expired');
         $response->assertStatus(403);
     }
+
+    public function test_authenticated_is_redirected_on_forgot_password_form_method_get(): void {
+        $response = $this->actingAs($this->generic)->get('/forgot-password');
+        $response->assertStatus(302);
+        $response->assertRedirect('/');    
+    }
+
+    public function test_authenticated_is_redirected_on_forgot_password_form_method_post(): void {
+        $response = $this->actingAs($this->generic)->post('/forgot-password');
+        $response->assertStatus(302);
+        $response->assertRedirect('/');    
+    }
+
+    public function test_unauthenticated_displays_forgot_password_form_successfully(): void {
+        $response = $this->get('/forgot-password');
+        $response->assertStatus(200);
+    }
 }
