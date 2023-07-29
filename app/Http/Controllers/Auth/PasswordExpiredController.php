@@ -61,7 +61,8 @@ class PasswordExpiredController extends Controller {
     /**
      * Shows the form for updating the user's expired password.
      */
-    public function edit(Request $request): Response {
+    public function edit(Request $request): Response|RedirectResponse {
+        if ($request->user()->status !== User::STATUS_FIELD_PASSWORD_EXPIRED) return redirect()->intended(RouteServiceProvider::HOME);
         $locale = Locale::getLocaleFromUserId($request->user()->user_id);
         App::setlocale($locale);
         session(['locale' => $locale, 'mustUpdateLocale' => true]);
@@ -74,6 +75,7 @@ class PasswordExpiredController extends Controller {
      * Updates the user's expired password.
      */
     public function update(Request $request): RedirectResponse {
+        if ($request->user()->status !== User::STATUS_FIELD_PASSWORD_EXPIRED) throw new AuthorizationException('Unauthorized.',403);
         $validated = $request->validate([
             'new_password' => ['required', Password::defaults(), 'confirmed'],
             'new_password_confirmation' => ['required', Password::defaults()]

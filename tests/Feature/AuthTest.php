@@ -766,13 +766,33 @@ class AuthTest extends TestCase {
         $response->assertRedirect('/login');
     }
 
-    public function test_authenticated_password_expired_successful(): void {
+    public function test_authenticated_password_expired_successful_on_status_expired(): void {
+        $this->generic->update([ User::STATUS_FIELD => User::STATUS_FIELD_PASSWORD_EXPIRED ]);
         $response = $this->actingAs($this->generic)->get('/password-expired');
         $response->assertStatus(200);
     }
 
-    public function test_authenticated_changes_password_on_password_expired_form(): void {
+    public function test_authenticated_password_expired_redirects_on_status_active(): void {
+        $this->generic->update([ User::STATUS_FIELD => User::STATUS_FIELD_ACTIVE ]);
+        $response = $this->actingAs($this->generic)->get('/password-expired');
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+    }
+
+    public function test_authenticated_fails_to_change_password_on_password_expired_form(): void {
+        $this->generic->update([ User::STATUS_FIELD => User::STATUS_FIELD_PASSWORD_EXPIRED ]);
+        $response = $this->actingAs($this->generic)->patch('/password-expired', [
+            'new_password' => 'NewPW12345',
+            'new_password_confirmation' => 'NewPW1234567'
+        ]);
+        $response->assertInvalid(['new_password']);
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+    }
+
+    public function test_authenticated_changes_password_on_password_expired_form_on_status_expired(): void {
         /* 1) Change a user's password: */
+        $this->generic->update([ User::STATUS_FIELD => User::STATUS_FIELD_PASSWORD_EXPIRED ]);
         $response = $this->actingAs($this->generic)->patch('/password-expired', [
             'new_password' => 'NewPW123456',
             'new_password_confirmation' => 'NewPW123456'
@@ -781,6 +801,7 @@ class AuthTest extends TestCase {
         $response->assertStatus(302);
         $response->assertRedirect('/');
         /* 2) Change a user's password back: */
+        $this->generic->update([ User::STATUS_FIELD => User::STATUS_FIELD_PASSWORD_EXPIRED ]);
         $response = $this->actingAs($this->generic)->patch('/password-expired', [
             'new_password' => Valve::getValue('genericPW'),
             'new_password_confirmation' => Valve::getValue('genericPW')
@@ -790,13 +811,9 @@ class AuthTest extends TestCase {
         $response->assertRedirect('/');    
     }
 
-    public function test_authenticated_fails_to_change_password_on_password_expired_form(): void {
-        $response = $this->actingAs($this->generic)->patch('/password-expired', [
-            'new_password' => 'NewPW12345',
-            'new_password_confirmation' => 'NewPW1234567'
-        ]);
-        $response->assertInvalid(['new_password']);
-        $response->assertStatus(302);
-        $response->assertRedirect('/');
+    public function test_authenticated_unsuccessful_on_password_expired_form_on_status_active(): void {
+        $this->generic->update([ User::STATUS_FIELD => User::STATUS_FIELD_ACTIVE ]);
+        $response = $this->actingAs($this->generic)->patch('/password-expired');
+        $response->assertStatus(403);
     }
 }
