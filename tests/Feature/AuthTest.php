@@ -271,6 +271,21 @@ class AuthTest extends TestCase {
         $response->assertStatus(200);
     }
 
+    public function test_advanced_completes_game_successfully(): void {
+        $score_id = Score::fetchLastRecordByUserId($this->advanced->user_id)->id;
+        $gameScore = 900;
+        $response = $this->actingAs($this->advanced)->patch('/wordgame', [
+            'score_id' => $score_id,
+            'gameScore' => $gameScore
+        ]);
+        $record = Score::fetchLastRecordByUserId($this->advanced->user_id);
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+        $this->assertTrue($record->user_id === $this->advanced->user_id);
+        $this->assertTrue($record->difficultyLevel === 3);
+        $this->assertNotNull($record->score);
+    }
+
     public function test_advanced_generates_game_successfully(): void {
         $response = $this->actingAs($this->advanced)->post('/wordgame', [
             'directions' => false,
@@ -282,6 +297,15 @@ class AuthTest extends TestCase {
             'difficulty' => -1250
         ]);
         $response->assertStatus(200);
+    }
+
+    public function test_remove_premium_from_advanced_if_needed(): void {
+        if (User::userIdHasRole($this->advanced->user_id, 'user.premium'))
+            $this->advanced->roles()->detach(Role::where('name','user.premium')->value('id'));
+        if (User::userIdHasRole($this->advanced->user_id, 'user.premium.promo'))
+            $this->advanced->roles()->detach(Role::where('name','user.premium.promo')->value('id'));
+        $this->assertDatabaseMissing('role_user', [ 'user_id' => $this->advanced->id, 'role_id' => Role::getIdByName('user.premium') ]);
+        $this->assertDatabaseMissing('role_user', [ 'user_id' => $this->advanced->id, 'role_id' => Role::getIdByName('user.premium.promo') ]);
     }
 
     public function test_premium_generates_game_successfully(): void {
