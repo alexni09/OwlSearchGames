@@ -308,15 +308,15 @@ class AuthTest extends TestCase {
         $this->assertDatabaseMissing('role_user', [ 'user_id' => $this->advanced->id, 'role_id' => Role::getIdByName('user.premium.promo') ]);
     }
 
-    public function test_premium_generates_game_successfully(): void {
+    public function test_premium_generates_insane_game(): void {
         $response = $this->actingAs($this->premium)->post('/wordgame', [
             'directions' => false,
-            'difficultyLevel' => 2,
-            'x' => 15,
-            'y' => 10,
-            'count' => 12,
+            'difficultyLevel' => 4,
+            'x' => 25,
+            'y' => 16,
+            'count' => 22,
             'worddiff' => null,
-            'difficulty' => -1250
+            'difficulty' => -1550
         ]);
         $response->assertStatus(200);
     }
@@ -334,15 +334,15 @@ class AuthTest extends TestCase {
         $response->assertStatus(200);
     }
 
-    public function test_premium_generates_insane_game(): void {
+    public function test_premium_generates_game_successfully(): void {
         $response = $this->actingAs($this->premium)->post('/wordgame', [
             'directions' => false,
-            'difficultyLevel' => 4,
-            'x' => 25,
-            'y' => 16,
-            'count' => 22,
+            'difficultyLevel' => 2,
+            'x' => 15,
+            'y' => 10,
+            'count' => 12,
             'worddiff' => null,
-            'difficulty' => -1550
+            'difficulty' => -1250
         ]);
         $response->assertStatus(200);
     }
