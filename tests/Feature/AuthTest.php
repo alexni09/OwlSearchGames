@@ -770,4 +770,22 @@ class AuthTest extends TestCase {
         $response = $this->actingAs($this->generic)->get('/password-expired');
         $response->assertStatus(200);
     }
+
+    public function test_authenticated_changes_password_on_password_expired_form(): void {
+        /* 1) Change a user's password: */
+        $response = $this->actingAs($this->generic)->patch('/password-expired', [
+            'new_password' => 'NewPW3456',
+            'new_password_confirmation' => 'NewPW3456'
+        ]);
+        $response->assertValid(['new_password','new_password_confirmation']);
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+        /* 2) Change a user's password back: */
+        $response = $this->actingAs($this->generic)->patch('/password-expired', [
+            'new_password' => Valve::getValue('genericPW'),
+            'new_password_confirmation' => Valve::getValue('genericPW')
+        ]);
+        $response->assertValid(['new_password','new_password_confirmation']);
+        $response->assertStatus(302);
+        $response->assertRedirect('/');    }
 }
