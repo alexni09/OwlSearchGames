@@ -1,5 +1,17 @@
 <?php
 
+/*
+    Feature tests for the app.
+    IMPORTANT: Test the full suite! 
+               Some of these tests alter the database in some ways. Some don't.
+               So, if you filter, you may get worng results.
+               Also, the database would be inconsistent.
+    If the database needs rebuilding:
+        1) php artisan migrate:fresh --seed
+        2) Run the listed console commands
+        3) Login as admin and execute the listed queries
+*/
+
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
