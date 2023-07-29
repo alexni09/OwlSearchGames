@@ -14,6 +14,7 @@ use App\Models\Locale;
 use Illuminate\Support\Str;
 use App\Models\UserUpdate;
 use App\Models\DeletedRoleUser;
+use Illuminate\Support\Facades\Hash;
 
 class AuthTest extends TestCase {
     public $adminId = null;
@@ -713,5 +714,43 @@ class AuthTest extends TestCase {
         $this->assertDatabaseHas('role_user', [ User::MAIN_FIELD => $user->id, 'role_id' => $role3 ]);
         $this->assertDatabaseMissing('deleted_role_users', [ User::MAIN_FIELD => $userId ]);
         $this->assertDatabaseHas('user_ids', [ User::MAIN_FIELD => $userId ]);
+    }
+
+    public function test_authenticated_redirects_to_home_method_get(): void {
+        $response = $this->actingAs($this->generic)->get('/register');
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+    }
+
+    public function test_authenticated_redirects_to_home_method_post(): void {
+        $response = $this->actingAs($this->generic)->post('/register');
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+    }
+
+    public function test_unauthenticated_can_register(): void {
+        $response = $this->get('/register');
+        $response->assertStatus(200);
+    }
+
+    public function test_register_new(): void {
+        $pwHash = Hash::make('TestNewPW367');
+        $response = $this->post('/register', [
+            User::MAIN_FIELD => 'testnewuser',
+            User::PASSWORD_FIELD => $pwHash,
+            'password_confirmation' => $pwHash,
+            'name' => 'Test New User',
+            'email' => 'newuser@someotherdomain.biz',
+            'locale_id' => 2,
+            'pronoun_id' => 7,
+            'show_pronoun' => false,
+            'show_name' => true,
+            'show_email' => false,
+            'show_user_id' => true,
+            'captcha' => '1a2b3C4D'
+        ]);
+        $response->assertStatus(302);
+        $response->assertValid([User::MAIN_FIELD, User::PASSWORD_FIELD, 'name', 'email', 'locale_id', 'pronoun_id', 'show_pronoun', 'show_name', 'show_email', 'show_user_id']);
+        $response->assertInvalid(['captcha']);
     }
 }
