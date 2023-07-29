@@ -753,4 +753,21 @@ class AuthTest extends TestCase {
         $response->assertValid([User::MAIN_FIELD, User::PASSWORD_FIELD, 'name', 'email', 'locale_id', 'pronoun_id', 'show_pronoun', 'show_name', 'show_email', 'show_user_id']);
         $response->assertInvalid(['captcha']);
     }
+
+    public function test_unauthenticated_password_expired_redirects_to_login_method_get(): void {
+        $response = $this->get('/password-expired');
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_unauthenticated_password_expired_redirects_to_login_method_patch(): void {
+        $response = $this->patch('/password-expired');
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+    }
+
+    public function test_authenticated_password_expired_successful(): void {
+        $response = $this->actingAs($this->generic)->get('/password-expired');
+        $response->assertStatus(200);
+    }
 }
