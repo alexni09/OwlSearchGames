@@ -321,6 +321,21 @@ class AuthTest extends TestCase {
         $response->assertStatus(200);
     }
 
+    public function test_premium_completes_game_successfully(): void {
+        $score_id = Score::fetchLastRecordByUserId($this->premium->user_id)->id;
+        $gameScore = 1500;
+        $response = $this->actingAs($this->premium)->patch('/wordgame', [
+            'score_id' => $score_id,
+            'gameScore' => $gameScore
+        ]);
+        $record = Score::fetchLastRecordByUserId($this->premium->user_id);
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+        $this->assertTrue($record->user_id === $this->premium->user_id);
+        $this->assertTrue($record->difficultyLevel === 4);
+        $this->assertNotNull($record->score);
+    }
+
     public function test_premium_generates_very_difficult_game(): void {
         $response = $this->actingAs($this->premium)->post('/wordgame', [
             'directions' => false,
