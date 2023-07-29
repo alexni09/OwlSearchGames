@@ -177,17 +177,17 @@ class AuthTest extends TestCase {
         $response->assertStatus(403);
     }
 
-    public function test_generic_generates_game_successfully(): void {
+    public function test_generic_cannot_generate_insane_game(): void {
         $response = $this->actingAs($this->generic)->post('/wordgame', [
             'directions' => false,
-            'difficultyLevel' => 2,
-            'x' => 15,
-            'y' => 10,
-            'count' => 12,
+            'difficultyLevel' => 4,
+            'x' => 25,
+            'y' => 16,
+            'count' => 22,
             'worddiff' => null,
-            'difficulty' => -1250
+            'difficulty' => -1550
         ]);
-        $response->assertStatus(200);
+        $response->assertStatus(403);
     }
 
     public function test_generic_cannot_generate_very_difficult_game(): void {
@@ -203,17 +203,46 @@ class AuthTest extends TestCase {
         $response->assertStatus(403);
     }
 
-    public function test_generic_cannot_generate_insane_game(): void {
+    public function test_generic_generates_game_successfully(): void {
         $response = $this->actingAs($this->generic)->post('/wordgame', [
             'directions' => false,
-            'difficultyLevel' => 4,
-            'x' => 25,
-            'y' => 16,
-            'count' => 22,
+            'difficultyLevel' => 2,
+            'x' => 15,
+            'y' => 10,
+            'count' => 12,
             'worddiff' => null,
-            'difficulty' => -1550
+            'difficulty' => -1250
         ]);
-        $response->assertStatus(403);
+        $record = Score::fetchLastRecordByUserId($this->generic->user_id);
+        $response->assertStatus(200);
+        $this->assertTrue($record->user_id === $this->generic->user_id);
+        $this->assertTrue($record->difficultyLevel === 2);
+        $this->assertNull($record->score);
+    }
+
+    public function test_generic_completes_game_successfully(): void {
+        $score_id = Score::fetchLastRecordByUserId($this->generic->user_id)->id;
+        $gameScore = 400;
+        $response = $this->actingAs($this->generic)->patch('/wordgame', [
+            'score_id' => $score_id,
+            'gameScore' => $gameScore
+        ]);
+        $record = Score::fetchLastRecordByUserId($this->generic->user_id);
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+        $this->assertTrue($record->user_id === $this->generic->user_id);
+        $this->assertTrue($record->difficultyLevel === 2);
+        $this->assertNotNull($record->score);
+    }
+
+    public function test_generic_has_been_promoted(): void {
+        $this->assertDatabaseHas('role_user', [ 'user_id' => $this->generic->id, 'role_id' => Role::getIdByName('user.advanced') ]);
+    }
+
+    public function test_remove_advanced_from_generic_if_needed(): void {
+        if (User::userIdHasRole($this->generic->user_id, 'user.advanced'))
+            $this->generic->roles()->detach(Role::where('name','user.advanced')->value('id'));
+        $this->assertDatabaseMissing('role_user', [ 'user_id' => $this->generic->id, 'role_id' => Role::getIdByName('user.advanced') ]);
     }
 
     public function test_advanced_generates_game_successfully(): void {
