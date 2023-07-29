@@ -2,6 +2,7 @@
 
 /*
     Feature tests for the app.
+    IMPORTANT: Do NOT use RefreshDatabase
     IMPORTANT: Test the full suite! 
                Some of these tests alter the database in some ways. Some don't.
                So, if you filter, you may get worng results.
@@ -14,8 +15,8 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+//use Illuminate\Foundation\Testing\RefreshDatabase;
+//use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Valve;
 use App\Models\User;
