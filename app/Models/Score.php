@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Illuminate\Database\Query\Builder;
 
 class Score extends Model {
     use HasFactory;
@@ -20,11 +21,23 @@ class Score extends Model {
     }
 
     /* Prepared Queries */
-    public static function cleanse($userIds = []): void { /* users.user_id's */   /* this function is used when testing */
+    public static function cleanse($userIds = []): void {   /* users.user_id's */   /* this function is used when testing */
         self::where('difficulty', '<=', static::DIFFICULTY_FOR_TESTING)->whereIn(USER::MAIN_FIELD, $userIds)->delete();
     }
 
-    public static function getCountForAfterCleansing($userIds = []) { /* users.user_id's */   /* this function is used when testing */
+    public static function existsUserId($user_id) {
+        return boolVal(self::selectRaw('count(*) as thisCount')->where('user_id', $user_id)->get()[0]->thisCount);
+    }
+
+    public static function fetchLastRecordByUserId($user_id) {    /* this function is used when testing */
+        if (static::existsUserId($user_id))
+            return self::where('id', function (Builder $query) use ($user_id) {
+                $query->selectRaw('max(b.id)')->from('scores as b')->where('b.user_id', $user_id);
+            })->get()[0];
+        else return null;
+    }
+
+    public static function getCountForAfterCleansing($userIds = []) {   /* users.user_id's */   /* this function is used when testing */
         return self::selectRaw("count(*) as thisCount")->where('difficulty', '<=', static::DIFFICULTY_FOR_TESTING)->whereIn(USER::MAIN_FIELD, $userIds)->get()[0]->thisCount;
     }
 

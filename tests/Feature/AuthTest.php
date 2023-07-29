@@ -117,6 +117,27 @@ class AuthTest extends TestCase {
         $response->assertRedirect('/');
     }
 
+    public function test_generic_score_max_id_is_valid(): void {
+        $record = Score::fetchLastRecordByUserId($this->generic->user_id);
+        if ($record === null) $flag = false;
+        else $flag = $record->id >= 18;
+        $this->assertTrue($flag);
+    }
+
+    public function test_advanced_score_max_id_is_valid(): void {
+        $record = Score::fetchLastRecordByUserId($this->advanced->user_id);
+        if ($record === null) $flag = false;
+        else $flag = $record->id >= 19;
+        $this->assertTrue($flag);
+    }
+
+    public function test_admin_score_max_id_is_valid(): void {
+        $record = Score::fetchLastRecordByUserId($this->admin->user_id);
+        if ($record === null) $flag = false;
+        else $flag = $record->id >= 13;
+        $this->assertTrue($flag);
+    }
+
     public function test_unauthenticated_generates_game_successfully(): void {
         $response = $this->post('/wordgame', [
             'directions' => false,
