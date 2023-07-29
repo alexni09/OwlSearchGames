@@ -833,4 +833,52 @@ class AuthTest extends TestCase {
         $response = $this->get('/forgot-password');
         $response->assertStatus(200);
     }
+
+    public function test_unauthenticated_sends_forgot_password_form_user_id_successfully(): void {
+        $this->generic->update([ User::STATUS_FIELD => User::STATUS_FIELD_ACTIVE ]);
+        $user_id = $this->generic->user_id;
+        $response = $this->post('/forgot-password', [
+            'method' => 1,
+            User::MAIN_FIELD => $user_id
+        ]);
+        $response->assertStatus(200);
+        $response->assertValid('method', User::MAIN_FIELD, 'email');
+        $this->assertDatabaseHas('users', [ User::MAIN_FIELD => $user_id, User::STATUS_FIELD => User::STATUS_FIELD_PASSWORD_EXPIRED ]);
+    }
+
+    public function test_unauthenticated_sends_forgot_password_form_email_successfully(): void {
+        $this->generic->update([ User::STATUS_FIELD => User::STATUS_FIELD_ACTIVE ]);
+        $email = $this->generic->email;
+        $response = $this->post('/forgot-password', [
+            'method' => 2,
+            'email' => $email
+        ]);
+        $response->assertStatus(200);
+        $response->assertValid('method', User::MAIN_FIELD, 'email');
+        $this->assertDatabaseHas('users', [ 'email' => $email, User::STATUS_FIELD => User::STATUS_FIELD_PASSWORD_EXPIRED ]);
+    }
+
+    public function test_unauthenticated_fails_to_fill_in_correctly_forgot_password_form_user_id(): void {
+        $this->generic->update([ User::STATUS_FIELD => User::STATUS_FIELD_ACTIVE ]);
+        $response = $this->post('/forgot-password', [
+            'method' => 1,
+            User::MAIN_FIELD => 'abcdefghijklmnopqrs'
+        ]);
+        $response->assertStatus(302);
+        $response->assertValid('method', 'email'); 
+        $response->assertInvalid(User::MAIN_FIELD);
+        $this->assertDatabaseHas('users', [ 'id' => $this->generic->id, User::STATUS_FIELD => User::STATUS_FIELD_ACTIVE ]);
+    }
+
+    public function test_unauthenticated_fails_to_fill_in_correctly_forgot_password_form_email(): void {
+        $this->generic->update([ User::STATUS_FIELD => User::STATUS_FIELD_ACTIVE ]);
+        $response = $this->post('/forgot-password', [
+            'method' => 2,
+            'email' => 'abcdefghij@yetanotherdomain.com'
+        ]);
+        $response->assertStatus(302);
+        $response->assertValid('method', User::MAIN_FIELD); 
+        $response->assertInvalid('email');
+        $this->assertDatabaseHas('users', [ 'id' => $this->generic->id, User::STATUS_FIELD => User::STATUS_FIELD_ACTIVE ]);
+    }
 }
