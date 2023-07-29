@@ -774,8 +774,8 @@ class AuthTest extends TestCase {
     public function test_authenticated_changes_password_on_password_expired_form(): void {
         /* 1) Change a user's password: */
         $response = $this->actingAs($this->generic)->patch('/password-expired', [
-            'new_password' => 'NewPW3456',
-            'new_password_confirmation' => 'NewPW3456'
+            'new_password' => 'NewPW123456',
+            'new_password_confirmation' => 'NewPW123456'
         ]);
         $response->assertValid(['new_password','new_password_confirmation']);
         $response->assertStatus(302);
@@ -787,5 +787,16 @@ class AuthTest extends TestCase {
         ]);
         $response->assertValid(['new_password','new_password_confirmation']);
         $response->assertStatus(302);
-        $response->assertRedirect('/');    }
+        $response->assertRedirect('/');    
+    }
+
+    public function test_authenticated_fails_to_change_password_on_password_expired_form(): void {
+        $response = $this->actingAs($this->generic)->patch('/password-expired', [
+            'new_password' => 'NewPW12345',
+            'new_password_confirmation' => 'NewPW1234567'
+        ]);
+        $response->assertInvalid(['new_password']);
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+    }
 }
