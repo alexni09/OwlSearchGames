@@ -23,6 +23,7 @@ use App\Rules\EmailBanned;
 use App\Rules\UserIdBanned;
 use App\Models\Role;
 use Symfony\Component\Mailer\Exception\TransportException;
+use App\Jobs\SendRegisteredUserNotificationToAdmins;
 
 class RegisteredUserController extends Controller {
     /**
@@ -77,6 +78,7 @@ class RegisteredUserController extends Controller {
             $user->delete();
             return Inertia::render('Auth/EmailNotSent');
         }
+        SendRegisteredUserNotificationToAdmins::dispatch($user);
         Auth::login($user);
         $user_locale = Locale::getLocaleFromUserId($request[User::MAIN_FIELD]);
         session(['locale' => $user_locale, 'mustUpdateLocale' => true]);
