@@ -49,12 +49,6 @@ use App\Http\Controllers\Public\FaqController;
 /* Contact Form */
 use App\Http\Controllers\Public\ContactFormController;
 
-use Illuminate\Support\Facades\Redis;
-Route::get('/redis', function () {
-    Redis::set('key1','pigeon');  // a test
-    dd(Redis::get('key1'));
-});
-
 /* Main Page */
 Route::get('/', [GameController::class, 'show'])->middleware('status')->name('home');
 
