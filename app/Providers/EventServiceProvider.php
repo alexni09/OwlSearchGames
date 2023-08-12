@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+//use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 use App\Events\PasswordExpired;
@@ -39,7 +39,7 @@ class EventServiceProvider extends ServiceProvider {
             SendEmailPasswordExpiredNotification::class
         ],
         Registered::class => [
-            SendEmailVerificationNotification::class
+            //SendEmailVerificationNotification::class
         ],
         UserUpdatedEmail::class => [
             SendEmailUpdatedVerificationNotification::class
