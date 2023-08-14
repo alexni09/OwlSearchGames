@@ -20,7 +20,9 @@ use App\Models\DeletedRoleUser;
 use Illuminate\Auth\Events\Registered;
 use App\Events\UserUpdatedEmail;
 use App\Rules\EmailBanned;
-use Symfony\Component\Mailer\Exception\TransportException;
+//use Symfony\Component\Mailer\Exception\TransportException;
+use App\Jobs\SendEmailUpdatedVerification;
+use App\Jobs\SendUpdatedEmailUserNotificationToAdmins;
 
 class ProfileController extends Controller {
     /**
@@ -54,12 +56,17 @@ class ProfileController extends Controller {
         $request->user()->fill($validated);
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
+            event(new UserUpdatedEmail($request->user()));
+            SendEmailUpdatedVerification::dispatch($request->user());
+            SendUpdatedEmailUserNotificationToAdmins::dispatch($request->user());
         }
+        /*
         try {
             event(new UserUpdatedEmail($request->user()));
         } catch(TransportException) {
             return Inertia::render('Auth/EmailNotSent');
         }
+        */
         UserUpdate::addUpdated($request->user()->id);
         $request->user()->save();
         return redirect()->intended(RouteServiceProvider::HOME);

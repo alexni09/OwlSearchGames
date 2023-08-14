@@ -42,7 +42,7 @@ class EventServiceProvider extends ServiceProvider {
             //SendEmailVerificationNotification::class
         ],
         UserUpdatedEmail::class => [
-            SendEmailUpdatedVerificationNotification::class
+            //SendEmailUpdatedVerificationNotification::class
         ],
         UserRequestedAnotherVerificationEmail::class => [
             //SendAnotherEmailUpdatedVerificationNotification::class
