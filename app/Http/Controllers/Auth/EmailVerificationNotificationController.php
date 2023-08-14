@@ -7,9 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Events\UserRequestedAnotherVerificationEmail;
-//use Inertia\Inertia;
 use Inertia\Response;
-//use Symfony\Component\Mailer\Exception\TransportException;
 use App\Jobs\SendEmailVerification;
 
 class EmailVerificationNotificationController extends Controller {
@@ -18,13 +16,6 @@ class EmailVerificationNotificationController extends Controller {
      */
     public function store(Request $request): RedirectResponse|Response {
         if ($request->user()->hasVerifiedEmail()) return redirect()->intended(RouteServiceProvider::HOME);
-        /*
-        try {
-            event(new UserRequestedAnotherVerificationEmail($request->user()));
-        } catch(TransportException) {
-            return Inertia::render('Auth/EmailNotSent');
-        }
-        */
         event(new UserRequestedAnotherVerificationEmail($request->user()));
         SendEmailVerification::dispatch($request->user());
         return back()->with('status', 'verification-link-sent');
