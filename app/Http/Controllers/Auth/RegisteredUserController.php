@@ -22,7 +22,6 @@ use App\Rules\UserIdLastCharacter;
 use App\Rules\EmailBanned;
 use App\Rules\UserIdBanned;
 use App\Models\Role;
-//use Symfony\Component\Mailer\Exception\TransportException;
 use App\Jobs\SendEmailVerification;
 use App\Jobs\SendRegisteredUserNotificationToAdmins;
 
@@ -73,14 +72,6 @@ class RegisteredUserController extends Controller {
             'show_user_id' => $request->show_user_id
         ]);
         $user->roles()->attach(Role::where('name','user.generic')->value('id'));
-        /*
-        try {
-            event(new Registered($user));
-        } catch(TransportException) {
-            $user->delete();
-            return Inertia::render('Auth/EmailNotSent');
-        }
-        */
         event(new Registered($user));
         SendEmailVerification::dispatch($user);
         SendRegisteredUserNotificationToAdmins::dispatch($user);

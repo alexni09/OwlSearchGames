@@ -86,7 +86,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
 });
 
-/* User Email Verification (Fires: after registration; or after an email profile change; or per user request) */
+/* User Email Verification (Fire: after registration; or after an email profile change; or per user request) */
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)
                 ->name('verification.notice');

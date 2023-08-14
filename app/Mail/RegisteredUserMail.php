@@ -37,8 +37,7 @@ class RegisteredUserMail extends Mailable {
      */
     public function content(): Content {
         return new Content(
-            view: 'emails.registered',
-            //with: [ 'user' => $this->user ]
+            view: 'emails.registered'
         );
     }
 
