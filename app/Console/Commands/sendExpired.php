@@ -21,7 +21,7 @@ class sendExpired extends Command {
      *
      * @var string
      */
-    protected $description = 'Expires the user and sends a password expired notification towards the user.';
+    protected $description = 'Changes the user password to whatever; expires the user; and sends a password expired notification towards the user.';
 
     /**
      * Execute the console command.
