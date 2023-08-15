@@ -8,7 +8,6 @@ use Inertia\Inertia;
 use Inertia\Response;
 use Illuminate\Http\RedirectResponse;
 use App\Models\User;
-//use Symfony\Component\Mailer\Exception\TransportException;
 use App\Events\ContactEmailSent;
 use App\Providers\RouteServiceProvider;
 use App\Jobs\SendContactEmailNotification;
@@ -26,13 +25,6 @@ class ContactFormController extends Controller {
             'message' => ['required', 'string', 'max:250'],
             'captcha' => ['required', 'min:6', 'max:6', 'captcha']
         ]);
-        /*
-        try {
-            event(new ContactEmailSent($request->name, $request->email, $request->message, $request->user_id));
-        } catch(TransportException) {
-            return Inertia::render('Auth/EmailNotSent');
-        }
-        */
         $eventContactEmail = new ContactEmailSent($request->name, $request->email, $request->message, $request->user_id);
         event($eventContactEmail);
         SendContactEmailNotification::dispatch($eventContactEmail);
