@@ -2,22 +2,14 @@
 
 namespace App\Providers;
 
-use Illuminate\Auth\Events\Registered;
-//use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 use App\Events\PasswordExpired;
 use App\Listeners\SendEmailPasswordExpiredNotification;
-use App\Events\UserUpdatedEmail;
-use App\Listeners\SendEmailUpdatedVerificationNotification;
-use App\Events\UserRequestedAnotherVerificationEmail;
-use App\Listeners\SendAnotherEmailUpdatedVerificationNotification;
 use App\Events\BannedEmailFlagged;
 use App\Listeners\LogBannedEmail;
 use App\Events\BannedUserIdFlagged;
 use App\Listeners\LogBannedUserId;
-use App\Events\ContactEmailSent;
-use App\Listeners\SendContactEmailNotification;
 
 class EventServiceProvider extends ServiceProvider {
     /**
@@ -32,20 +24,8 @@ class EventServiceProvider extends ServiceProvider {
         BannedUserIdFlagged::class => [
             LogBannedUserId::class
         ],
-        ContactEmailSent::class => [
-            //SendContactEmailNotification::class
-        ],
         PasswordExpired::class => [
             SendEmailPasswordExpiredNotification::class
-        ],
-        Registered::class => [
-            //SendEmailVerificationNotification::class
-        ],
-        UserUpdatedEmail::class => [
-            //SendEmailUpdatedVerificationNotification::class
-        ],
-        UserRequestedAnotherVerificationEmail::class => [
-            //SendAnotherEmailUpdatedVerificationNotification::class
         ]
     ];
 
