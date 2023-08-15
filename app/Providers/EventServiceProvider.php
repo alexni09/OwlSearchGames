@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 use App\Events\PasswordExpired;
-use App\Listeners\SendEmailPasswordExpiredNotification;
+//use App\Listeners\SendEmailPasswordExpiredNotification;
 use App\Events\BannedEmailFlagged;
 use App\Listeners\LogBannedEmail;
 use App\Events\BannedUserIdFlagged;
@@ -25,7 +25,7 @@ class EventServiceProvider extends ServiceProvider {
             LogBannedUserId::class
         ],
         PasswordExpired::class => [
-            SendEmailPasswordExpiredNotification::class
+            //SendEmailPasswordExpiredNotification::class
         ]
     ];
 
