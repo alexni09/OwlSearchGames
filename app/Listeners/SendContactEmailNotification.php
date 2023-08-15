@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use App\Notifications\SendContactEmail;
 use Illuminate\Support\Facades\Notification;
 
-class SendContactEmailNotification {
+class SendContactEmailNotification implements ShouldQueue {
     /**
      * Create the event listener.
      */

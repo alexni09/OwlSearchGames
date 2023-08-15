@@ -33,7 +33,7 @@ class EventServiceProvider extends ServiceProvider {
             LogBannedUserId::class
         ],
         ContactEmailSent::class => [
-            SendContactEmailNotification::class
+            //SendContactEmailNotification::class
         ],
         PasswordExpired::class => [
             SendEmailPasswordExpiredNotification::class
