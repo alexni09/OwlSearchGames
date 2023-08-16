@@ -33,6 +33,7 @@ README_LARAVEL.md
 /app/Console/Commands/hashEquals.php
 /app/Console/Commands/helloWorld.php
 /app/Console/Commands/languageFiles.php
+/app/Events0
 /app/Http/Controllers/Auth/*_LARAVEL.php
 /app/Http/Requests/placeholder.txt
 /app/Listeners0

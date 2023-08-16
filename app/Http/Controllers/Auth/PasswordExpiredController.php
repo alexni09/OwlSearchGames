@@ -18,7 +18,6 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Locale;
 use Illuminate\Support\Facades\App;
-use App\Events\PasswordExpired;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\OldPassword;
 use App\Jobs\SendPasswordExpiredNotification;
@@ -95,7 +94,6 @@ class PasswordExpiredController extends Controller {
         if (!PasswordToken::existsToken($request->token)) return redirect()->intended(RouteServiceProvider::HOME);
         $user_id = PasswordToken::getUserIdByToken($request->token);
         $user = User::where('user_id',$user_id)->get()[0];
-        event(new PasswordExpired($user));
         SendPasswordExpiredNotification::dispatch($user);
         /* Logout and go HOME. */
         Auth::logout();

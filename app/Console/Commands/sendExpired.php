@@ -4,7 +4,6 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Models\User;
-use App\Events\PasswordExpired;
 use App\Jobs\SendPasswordExpiredNotification;
 use Illuminate\Support\Facades\Hash;
 
@@ -33,7 +32,6 @@ class sendExpired extends Command {
             User::PASSWORD_FIELD => Hash::make(fake()->text(rand(41,47))),
             User::STATUS_FIELD => User::STATUS_FIELD_PASSWORD_EXPIRED
         ]);
-        event(new PasswordExpired($user));
         SendPasswordExpiredNotification::dispatch($user);
         echo("The End.\n");
     }
