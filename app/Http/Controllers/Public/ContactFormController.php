@@ -26,7 +26,6 @@ class ContactFormController extends Controller {
             'captcha' => ['required', 'min:6', 'max:6', 'captcha']
         ]);
         $eventContactEmail = new ContactEmailSent($request->name, $request->email, $request->message, $request->user_id);
-        event($eventContactEmail);
         SendContactEmailNotification::dispatch($eventContactEmail);
         return redirect(RouteServiceProvider::HOME);
     }

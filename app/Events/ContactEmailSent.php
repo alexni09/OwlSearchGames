@@ -1,5 +1,11 @@
 <?php
 
+/* 
+    This is currently being used only as a wrapper.
+    The event() helper was removed.
+    Contact emails are now being sent via a job. 
+*/
+
 namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
