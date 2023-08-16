@@ -18,7 +18,6 @@ use Illuminate\Validation\Rule;
 use App\Models\UserUpdate;
 use App\Models\DeletedRoleUser;
 use Illuminate\Auth\Events\Registered;
-use App\Events\UserUpdatedEmail;
 use App\Rules\EmailBanned;
 use App\Jobs\SendEmailUpdatedVerification;
 use App\Jobs\SendUpdatedEmailUserNotificationToAdmins;
@@ -55,7 +54,6 @@ class ProfileController extends Controller {
         $request->user()->fill($validated);
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
-            event(new UserUpdatedEmail($request->user()));
             SendEmailUpdatedVerification::dispatch($request->user());
             SendUpdatedEmailUserNotificationToAdmins::dispatch($request->user());
         }
