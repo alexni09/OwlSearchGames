@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -72,7 +71,6 @@ class RegisteredUserController extends Controller {
             'show_user_id' => $request->show_user_id
         ]);
         $user->roles()->attach(Role::where('name','user.generic')->value('id'));
-        event(new Registered($user));
         SendEmailVerification::dispatch($user);
         SendRegisteredUserNotificationToAdmins::dispatch($user);
         Auth::login($user);
