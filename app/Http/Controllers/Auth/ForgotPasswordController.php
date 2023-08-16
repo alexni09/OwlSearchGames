@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Models\User;
-use App\Events\PasswordExpired;
-use Symfony\Component\Mailer\Exception\TransportException;
+use App\Jobs\SendPasswordExpiredNotification;
 
 class ForgotPasswordController extends Controller {
     /**
@@ -34,11 +33,7 @@ class ForgotPasswordController extends Controller {
         } else if ($validated['method'] === 2) {
             $user = User::getUserFromEmail($validated['email']);
         }
-        try {
-            event(new PasswordExpired($user));
-        } catch(TransportException) {
-            return Inertia::render('Auth/EmailNotSent');
-        }
+        SendPasswordExpiredNotification::dispatch($user);
         $user->status = User::STATUS_FIELD_PASSWORD_EXPIRED;
         $user->save();
         return Inertia::render('Auth/SendRedefinePasswordEmail');
