@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Models\BannedUserIdLog;
 
-class LogBannedUserId {
+class LogBannedUserId implements ShouldQueue {
     /**
      * Create the event listener.
      */

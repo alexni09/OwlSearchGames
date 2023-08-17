@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Models\BannedEmailLog;
 
-class LogBannedEmail {
+class LogBannedEmail implements ShouldQueue {
     /**
      * Create the event listener.
      */

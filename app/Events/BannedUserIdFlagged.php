@@ -1,5 +1,7 @@
 <?php
 
+/*  This event may get itself fired on app\Rules\UserIdBanned.  */
+
 namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
