@@ -12,9 +12,9 @@ return new class extends Migration {
         Schema::create('banned_user_id_logs', function (Blueprint $table) {
             $table->id();
             $table->string('part');
-            $table->unsignedTinyInteger('operation')->default(0); /* 0 = unspecified; 1 = registration; 2 = profile update */
+            $table->unsignedTinyInteger('operation')->default(0);   /* 0 = not yet sent; 1 = sending; 2 = sent */
             $table->string('ip')->nullable()->default(null);
-            $table->boolean('isDisplayed')->default(false);  /* for future use */
+            $table->boolean('isDisplayed')->default(false);
             $table->timestamp('created_at');
             $table->index(['part']);
             $table->index(['ip', 'part', 'operation']);
