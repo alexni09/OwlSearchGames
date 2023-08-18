@@ -29,15 +29,15 @@ class sendFlaggedEmailsToAdmins implements ShouldQueue {
      * Execute the job.
      */
     public function handle(): void {
-        $qty = BannedEmailLog::selectRaw('count(*) as qty')->where('isDisplayed',false)->get()[0]->qty;
+        $qty = BannedEmailLog::selectRaw('count(*) as qty')->where('status',0)->get()[0]->qty;
         if ($qty >0) {
-            BannedEmailLog::where('isDisplayed',false)->update(['operation' => 1]);
+            BannedEmailLog::where('status',0)->update(['status' => 1]);
             $admin_notifiables = DB::table('admin_notifiables')->select('id');
             $admins = User::whereIn('id', $admin_notifiables)->get();
             foreach($admins as $admin) {
                 Mail::to($admin)->send(new FlaggedEmailMail());
             }
-            BannedEmailLog::where('isDisplayed',false)->where('operation',1)->update(['operation' => 2, 'isDisplayed' => true]);
+            BannedEmailLog::where('status',1)->update([ 'status' => 2 ]);
         }
     }
 }

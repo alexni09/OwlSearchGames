@@ -20,7 +20,7 @@ class FlaggedEmailMail extends Mailable {
      * Create a new message instance.
      */
     public function __construct() {
-        $this->records = BannedEmailLog::select(['id','part','ip'])->where('isDisplayed',false)->where('operation',1)->get();
+        $this->records = BannedEmailLog::select(['id','part','ip'])->where('status',1)->get();
     }
 
     /**

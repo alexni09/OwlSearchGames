@@ -25,7 +25,7 @@ class sendFlagged extends Command {
      * Execute the console command.
      */
     public function handle() {
-        //sendFlaggedEmailsToAdmins::dispatch();
+        sendFlaggedEmailsToAdmins::dispatch();
         sendFlaggedUserIdsToAdmins::dispatch();
     }
 }

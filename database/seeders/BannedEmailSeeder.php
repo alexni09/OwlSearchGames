@@ -12,6 +12,6 @@ class BannedEmailSeeder extends Seeder {
      */
     public function run(): void {
         //BannedEmail::create(['part' => 'example.com']);
-        //BannedEmail::create(['part' => 'someone@another.site', 'operation' => 1]);
+        BannedEmail::create(['part' => 'abcde@abcde.com', 'operation' => 1]);
     }
 }

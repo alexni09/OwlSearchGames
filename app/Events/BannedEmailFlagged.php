@@ -16,15 +16,15 @@ class BannedEmailFlagged {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $part = null;
-    public $operation = 0;
+    public $status = 0;
     public $ip = null;
 
     /**
      * Create a new event instance.
      */
-    public function __construct(string $part, int $operation = 0, string $ip = null) {
+    public function __construct(string $part, int $status = 0, string $ip = null) {
         $this->part = $part;
-        $this->operation = $operation;
+        $this->status = $status;
         $this->ip = $ip ?? request()->ip();
     }
 
