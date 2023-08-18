@@ -22,7 +22,7 @@ class LogBannedUserId implements ShouldQueue {
     public function handle(BannedUserIdFlagged $event): void {
         BannedUserIdLog::create([
             'part' => $event->part,
-            'operation' => $event->operation,
+            'status' => $event->status,
             'ip' => $event->ip
         ]);
     }

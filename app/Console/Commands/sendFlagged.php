@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Jobs\sendFlaggedEmailsToAdmins;
+use App\Jobs\sendFlaggedUserIdsToAdmins;
 
 class sendFlagged extends Command {
     /**
@@ -18,12 +19,13 @@ class sendFlagged extends Command {
      *
      * @var string
      */
-    protected $description = 'Dispatches the job for sending flagged emails to admins.';
+    protected $description = 'Dispatches the job for sending flagged emails and user_ids to admins.';
 
     /**
      * Execute the console command.
      */
     public function handle() {
-        sendFlaggedEmailsToAdmins::dispatch();
+        //sendFlaggedEmailsToAdmins::dispatch();
+        sendFlaggedUserIdsToAdmins::dispatch();
     }
 }

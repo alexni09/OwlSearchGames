@@ -18,5 +18,6 @@ class BannedUserIdSeeder extends Seeder {
         BannedUserId::create(['part' => 'alexni09', 'operation' => 1]);
         BannedUserId::create(['part' => 'anonymous', 'operation' => 1]);
         BannedUserId::create(['part' => 'useradmin', 'operation' => 1]);
+        BannedUserId::create(['part' => 'unknown', 'operation' => 1]);
     }
 }
