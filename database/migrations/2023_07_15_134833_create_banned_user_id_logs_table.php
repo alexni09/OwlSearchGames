@@ -16,8 +16,8 @@ return new class extends Migration {
             $table->string('ip')->nullable()->default(null);
             $table->timestamp('created_at');
             $table->index(['part']);
-            $table->index(['ip', 'part', 'status']);
-            $table->index(['status']);
+            $table->index(['ip']);
+            $table->index(['status', 'ip', 'part']);
         });
     }
 
