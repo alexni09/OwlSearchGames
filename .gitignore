@@ -39,6 +39,7 @@ README_LARAVEL.md
 /app/Listeners0
 /app/Mailfiles
 /app/Providers/AuthServiceProvider_FIRST.php
+/app/Providers/AuthServiceProvider_WITH_EVENTS_AND_LISTENERS.php
 /app/Providers/AuthServiceProvider_ZERO.php
 /app/Providers/EventServiceProvider_OLD.php
 /app/UserClasses/Paginator.php
