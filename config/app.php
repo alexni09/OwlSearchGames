@@ -168,7 +168,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\JobServiceProvider::class
+        App\Providers\JobServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class
     ])->toArray(),
 
     /*
@@ -183,7 +184,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Redis' => Illuminate\Support\Facades\Redis::class
+        'Redis' => Illuminate\Support\Facades\Redis::class,
+        'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class
     ])->toArray(),
 
 ];

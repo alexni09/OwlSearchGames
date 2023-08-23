@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
 
+/* Debugbar */
+use Barryvdh\Debugbar\Facades\Debugbar;
+
 /* Language Support */
 use Illuminate\Support\Facades\App;
 use App\UserClasses\BaseLanguage;
@@ -52,6 +55,11 @@ class HandleInertiaRequests extends Middleware {
     public function share(Request $request): array {
         /* user &c. */
         $user = $request->user();
+
+        /* Debugbar */
+        $canDebug = $user !== null ? $user->hasPermission('admin.debuggable') : env('UNDEFINED_USER_CAN_DEBUG',false);
+        $canDebug ? Debugbar::enable() : Debugbar::disable();
+        //Debugbar::enable();
 
         /* Language Support */
         $dl = $user !== null ? Locale::getLocaleFromLocale($user['locale_id']) : BaseLanguage::getDefaultLanguage();
