@@ -59,7 +59,6 @@ class HandleInertiaRequests extends Middleware {
         /* Debugbar */
         $canDebug = $user !== null ? $user->hasPermission('admin.debuggable') : env('UNDEFINED_USER_CAN_DEBUG',false);
         $canDebug ? Debugbar::enable() : Debugbar::disable();
-        //Debugbar::enable();
 
         /* Language Support */
         $dl = $user !== null ? Locale::getLocaleFromLocale($user['locale_id']) : BaseLanguage::getDefaultLanguage();
