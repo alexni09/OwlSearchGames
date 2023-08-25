@@ -2,14 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder as BuilderDB;
 use Illuminate\Database\Eloquent\Builder as BuilderEloquent;
 use Illuminate\Support\Facades\DB;
 
 class Word extends Model {
-    use HasFactory;
     protected $fillable = ['word', 'category_id', 'difficult', 'user_id'];
 
     /* Misc */

@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class Category extends Model {
-    use HasFactory;
     protected $fillable = ['category','locale_id','user_id','permission_id'];
 
     /* Relationships */

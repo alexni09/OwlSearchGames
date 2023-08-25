@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Locale extends Model {
-    use HasFactory;
     public $timestamps = false;
     protected $fillable = ['locale','name','active'];
     public function categories() { return $this->hasMany(Category::class); }

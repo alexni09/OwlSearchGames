@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class BannedEmail extends Model {
-    use HasFactory;
     protected $fillable = ['part','operation'];
     public $timestamps = ["created_at"];
     const UPDATED_AT = null;

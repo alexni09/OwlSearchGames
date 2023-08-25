@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Valve extends Model {
-    use HasFactory;
     protected $fillable = ['this_key', 'this_value'];
     public $timestamps = false;
     public const MY_KEY = 'valve';

@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use Illuminate\Database\Query\Builder;
 
 class Score extends Model {
-    use HasFactory;
     protected $fillable = [User::MAIN_FIELD, 'difficulty', 'difficultyLevel', 'score'];
 
     public const POINTS_ADVANCED = 2000;

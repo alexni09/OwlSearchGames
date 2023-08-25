@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
 class PasswordToken extends Model {
-    use HasFactory;
-
     protected $fillable = [User::MAIN_FIELD,'token','is_used'];
     public $timestamps = ["created_at"];
     const UPDATED_AT = null;
