@@ -18,8 +18,6 @@ module.exports = {
             },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                robotomono: ['Roboto Mono'],
-                paytoneone: ['Paytone One'],
                 luckiestguy: ['Luckiest Guy']
             },
         },
