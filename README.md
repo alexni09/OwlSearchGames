@@ -15,7 +15,7 @@
 
 **Owl Search Games is an educative game: search for the words hidden inside a randomly generated grid. Each game is unique.**
 
-[Website](https://owlsearch.games)[![Forge](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F074c5b49-bc7a-46ee-bf7c-cb50bdba6cc6&style=plastic)](https://forge.laravel.com/servers/698376/sites/2036433)
+**[Website](https://owlsearch.games)** [![Forge](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2F074c5b49-bc7a-46ee-bf7c-cb50bdba6cc6&style=plastic)](https://forge.laravel.com/servers/698376/sites/2036433)
 
 Quickly generate a game using this simple control:
 
@@ -29,7 +29,7 @@ A generated game will look like this:
 
 ![game image 3](/gitimages/osg3.png)
 
-[Play Now!](https://owlsearch.games)
+**[Play Now!](https://owlsearch.games)**
 
 ---
 
