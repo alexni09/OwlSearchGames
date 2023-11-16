@@ -20,7 +20,10 @@ class UnverifiedUserMail extends Mailable {
      * Create a new message instance.
      */
     public function __construct() {
-        $this->records = User::select(['id','user_id','status','name','email','created_at','updated_at'])->whereNull('email_verified_at')->get();
+        $this->records = User::select(['id','user_id','status','name','email','created_at','updated_at'])
+            ->whereNull('email_verified_at')
+            ->where('skip_unverified', false)
+            ->get();
     }
 
     /**
