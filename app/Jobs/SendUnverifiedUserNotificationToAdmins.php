@@ -27,7 +27,7 @@ class SendUnverifiedUserNotificationToAdmins implements ShouldQueue {
      * Execute the job.
      */
     public function handle(): void {
-        $qty = User::selectRaw('count(*) as qty')->whereNull('email_verified_at')->get()[0]->qty;
+        $qty = User::selectRaw('count(*) as qty')->whereNull('email_verified_at')->where('skip_unverified',0)->get()[0]->qty;
         if ($qty > 0) {
             $admin_notifiables = DB::table('admin_notifiables')->select('id');
             $admins = User::whereIn('id', $admin_notifiables)->get();
