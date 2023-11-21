@@ -30,11 +30,10 @@ class UnverifiedUserMail extends Mailable {
      * Get the message envelope.
      */
     public function envelope(): Envelope|null {
-        if (isset($this->records)) return new Envelope(
+        return new Envelope(
             from: new Address(env('MAIL_USERNAME'), 'Owl Search Games'),
             subject: 'Unverified User(s) - Owl Search Games',
-        ); 
-        else return null;
+        );
     }
 
     /**
