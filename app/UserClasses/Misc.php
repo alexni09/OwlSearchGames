@@ -14,9 +14,9 @@ class Misc {
                                         level up to Advanced!; level up to Premium! (before promo date); level up to Premium! (after promo date); */
 
     /* Return the promo date */
-    public const END_PROMO_DATE_EN = 'January 31st, 2024';
-    public const END_PROMO_DATE_PT = '31/01/2024';
-    protected static function END_PROMO_DATE() { return Carbon::createFromFormat('d/m/Y H:i:s', '31/01/2024 23:59:59'); }
+    public const END_PROMO_DATE_EN = 'January 31st, 2025';
+    public const END_PROMO_DATE_PT = '31/01/2025';
+    protected static function END_PROMO_DATE() { return Carbon::createFromFormat('d/m/Y H:i:s', '31/01/2025 23:59:59'); }
 
     /* Returns true iff now() is earlier than or equal to the promo date */
     public static function meetsPromoPremiumCriteria():bool { return Carbon::now()->lte(self::END_PROMO_DATE()); }
