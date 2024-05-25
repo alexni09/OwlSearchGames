@@ -10,7 +10,6 @@ use Illuminate\Validation\Rules\Password;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Providers\RouteServiceProvider;
-use App\Models\OldPassword;
 
 class PasswordController extends Controller {
     /**
